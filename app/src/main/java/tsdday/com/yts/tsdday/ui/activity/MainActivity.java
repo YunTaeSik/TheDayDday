@@ -107,6 +107,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         fragmentTransaction.commit();
     }
 
+
+
     private void setAd() {
         binding.adview.loadAd(adRequest);
         interstitialAd.setAdListener(new AdListener() {

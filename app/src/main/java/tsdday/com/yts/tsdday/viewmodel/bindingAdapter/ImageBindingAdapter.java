@@ -5,6 +5,7 @@ import android.content.res.ColorStateList;
 
 import androidx.databinding.BindingAdapter;
 
+import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.core.content.ContextCompat;
@@ -24,6 +25,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import tsdday.com.yts.tsdday.GlideApp;
 import tsdday.com.yts.tsdday.R;
 import tsdday.com.yts.tsdday.model.Album;
+import tsdday.com.yts.tsdday.model.AlbumItem;
 import tsdday.com.yts.tsdday.util.Keys;
 import tsdday.com.yts.tsdday.util.SharedPrefsUtils;
 
@@ -118,11 +120,38 @@ public class ImageBindingAdapter {
         Log.e("test", "setAlbumImage");
         if (album.getItems() != null && album.getItems().size() > 0) {
             view.setVisibility(View.VISIBLE);
-            GlideApp.with(view.getContext()).load(album.getItems().get(0).getImageData()).override(view.getMeasuredWidth(), view.getMeasuredHeight()).centerCrop().into(view);
+            setAlbumItemImage(view, album.getItems().get(0));
         } else {
             view.setVisibility(View.GONE);
         }
     }
 
+    @BindingAdapter({"setAlbumItemImage"})
+    public static void setAlbumItemImage(final PhotoView view, AlbumItem albumItem) {
+        Log.e("test", "setAlbumImage");
+        final Context context = view.getContext();
+        if (albumItem != null) {
+            String imageDataPath = albumItem.getImageDataPath();
+            byte[] imageData = albumItem.getImageData();
+            if (imageDataPath != null && imageDataPath.length() > 0) {
+                GlideApp.with(context).load(imageDataPath).fitCenter().thumbnail(0.1f).into(view);
+            } else if (imageData != null) {
+                GlideApp.with(context).load(imageData).fitCenter().thumbnail(0.1f).into(view);
+            }
+        }
+    }
 
+    @BindingAdapter({"setAlbumItemImage"})
+    public static void setAlbumItemImage(final AppCompatImageView view, AlbumItem albumItem) {
+        Log.e("test", "setAlbumImage");
+        if (albumItem != null) {
+            String imageDataPath = albumItem.getImageDataPath();
+            byte[] imageData = albumItem.getImageData();
+            if (imageDataPath != null && imageDataPath.length() > 0) {
+                GlideApp.with(view.getContext()).load(imageDataPath).override(view.getMeasuredWidth(), view.getMeasuredHeight()).centerCrop().into(view);
+            } else if (imageData != null) {
+                GlideApp.with(view.getContext()).load(imageData).override(view.getMeasuredWidth(), view.getMeasuredHeight()).centerCrop().into(view);
+            }
+        }
+    }
 }

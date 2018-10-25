@@ -25,6 +25,11 @@ public class Migration implements RealmMigration {
             albumSchema.addField("content", String.class);
             oldVersion++;
         }
+        if (oldVersion == 2) {
+            RealmObjectSchema albumItemSchema = schema.get("AlbumItem");
+            albumItemSchema.addField("imageDataPath", String.class);
+            oldVersion++;
+        }
 
     }
 

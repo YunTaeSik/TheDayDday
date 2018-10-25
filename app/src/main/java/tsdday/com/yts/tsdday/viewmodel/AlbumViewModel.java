@@ -153,11 +153,11 @@ public class AlbumViewModel extends BaseViewModel {
     public void addAlbumItemList(ArrayList<String> imageUrls) {
         isLoading.set(true);
         final ArrayList<AlbumItem> albumItems = new ArrayList<>();
-        mCompositeDisposable.add(Convert.contentUriToByteArray(mContext, imageUrls).subscribeWith(new DisposableObserver<byte[]>() {
+        mCompositeDisposable.add(Convert.contentUriToFilePath(mContext, imageUrls).subscribeWith(new DisposableObserver<String>() {
             @Override
-            public void onNext(byte[] bytes) {
+            public void onNext(String path) {
                 AlbumItem albumItem = new AlbumItem();
-                albumItem.setImageData(bytes);
+                albumItem.setImageDataPath(path);
                 albumItems.add(albumItem);
             }
 
@@ -215,7 +215,8 @@ public class AlbumViewModel extends BaseViewModel {
                     animatedVectorDrawableCompat.start();
                 }
             }
-        }  mCompositeDisposable.add(Single.timer(300, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        }
+        mCompositeDisposable.add(Single.timer(300, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Long>() {
                     @Override
                     public void accept(Long aLong) throws Exception {

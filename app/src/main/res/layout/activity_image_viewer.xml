@@ -20,8 +20,7 @@
 
         <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/image_photo"
-            setImage="@{model.imageData}"
-            setPhotoView="@{true}"
+            setAlbumItemImage="@{model.mAlbumItem}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"

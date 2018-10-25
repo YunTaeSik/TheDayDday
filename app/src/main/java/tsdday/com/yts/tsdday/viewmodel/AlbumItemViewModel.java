@@ -61,8 +61,7 @@ public class AlbumItemViewModel extends BaseViewModel {
                     makeSceneTransitionAnimation((Activity) mContext, view, ViewCompat.getTransitionName(view));
 
             imageViewer.putExtra(Keys.TRANS_NAME, Keys.TRANS_NAME + position);
-            //imageViewer.putExtra(Keys.ALBUM_ITEM, mAlbumItem.get());
-            imageViewer.putExtra(Keys.IMAGE_DATA, mAlbumItem.get().getImageData());
+            imageViewer.putExtra(Keys.ALBUM_ITEM, mAlbumItem.get());
 
             context.startActivity(imageViewer, options.toBundle());
         } catch (Exception e) {

@@ -2,14 +2,15 @@ package tsdday.com.yts.tsdday.viewmodel;
 
 import android.content.Context;
 
-import androidx.databinding.ObservableField;
+import tsdday.com.yts.tsdday.model.AlbumItem;
+
 
 public class ImageViewerViewModel extends BaseViewModel {
-    public byte[] imageData;
+    public AlbumItem mAlbumItem;
 
-    public ImageViewerViewModel(Context context, byte[] imageData) {
+    public ImageViewerViewModel(Context context, AlbumItem albumItem) {
         super(context);
-        this.imageData = imageData;
+        this.mAlbumItem = albumItem;
         // mPath.set(path);
     }
 }

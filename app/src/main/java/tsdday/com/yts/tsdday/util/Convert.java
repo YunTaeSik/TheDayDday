@@ -30,19 +30,18 @@ import tsdday.com.yts.tsdday.model.Couple;
 
 public class Convert {
 
-    public static Single<byte[]> contentUriToByteArray(final Context context, final Uri contentUri) {
-        return Single.create(new SingleOnSubscribe<byte[]>() {
+    public static Observable<String> contentUriToFilePath(final Context context, final ArrayList<String> imageUrls) {
+        return Observable.create(new ObservableOnSubscribe<String>() {
             @Override
-            public void subscribe(SingleEmitter<byte[]> emitter) throws Exception {
+            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
                 try {
-                    byte[] byteArray;
-                    Bitmap bitmap = GlideApp.with(context).asBitmap().load(contentUri).submit().get();
-                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 30, stream);
-                    byteArray = stream.toByteArray();
-                    bitmap.recycle();
+                    for (String url : imageUrls) {
 
-                    emitter.onSuccess(byteArray);
+                        Bitmap bitmap = GlideApp.with(context).asBitmap().load(url).submit().get();
+                        File file = CreateBitmap.create(context,bitmap);
+                        emitter.onNext(file.getPath());
+                    }
+                    emitter.onComplete();
                 } catch (Exception e) {
                     emitter.onError(e);
                     Crashlytics.logException(e);
@@ -50,8 +49,8 @@ public class Convert {
             }
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
-
     }
+
 
     public static Observable<byte[]> contentUriToByteArray(final Context context, final ArrayList<String> imageUrls) {
         return Observable.create(new ObservableOnSubscribe<byte[]>() {

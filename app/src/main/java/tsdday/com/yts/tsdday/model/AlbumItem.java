@@ -9,12 +9,19 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 public class AlbumItem extends RealmObject implements Parcelable {
-  /*  @PrimaryKey
-    public String date;*/
-
     public byte[] imageData;
+    public String imageDataPath;
+
     public String content;
 
+
+    public String getImageDataPath() {
+        return imageDataPath;
+    }
+
+    public void setImageDataPath(String imageDataPath) {
+        this.imageDataPath = imageDataPath;
+    }
 
     public byte[] getImageData() {
         return imageData;
@@ -44,11 +51,13 @@ public class AlbumItem extends RealmObject implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeByteArray(this.imageData);
+        dest.writeString(this.imageDataPath);
         dest.writeString(this.content);
     }
 
     protected AlbumItem(Parcel in) {
         this.imageData = in.createByteArray();
+        this.imageDataPath = in.readString();
         this.content = in.readString();
     }
 
