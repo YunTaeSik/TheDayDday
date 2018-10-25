@@ -1,0 +1,119 @@
+<resources>
+    <string name="test_device">"1AAF5C26F373E0C2E84FCD5A8FB409BF"</string>
+    <string name="ad_app_id">"ca-app-pub-9788292917303375~7143049504"</string>
+    <string name="banner_ad_id">"ca-app-pub-9788292917303375/7502142157"</string>
+    <string name="screen_ad_id">"ca-app-pub-9788292917303375/3179753762"</string>
+    <string name="reward_ad_id">"ca-app-pub-9788292917303375/3590817309"</string>
+
+    <string name="notification_channel_id">"notification_ts_channel_id"</string>
+    <string name="notification_channel_name">"notification_ts_channel_name"</string>
+
+    <string name="action_notification_click_phone">"ACTION_NOTIFICATION_CLICK_PHONE"</string>
+
+
+    <string name="invitation_deep_link">"https://sn3d4.app.goo.gl/TsDday"</string>
+
+    <string name="app_name">THE Day DDay</string>
+    <string name="contact_email">"sky877kr@gmail.com"</string>
+    <string name="title_home">Home</string>
+    <string name="title_setting">"Setting"</string>
+    <string name="title_album">"Album"</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+    <string name="list">"List"</string>
+    <string name="grid">"Grid"</string>
+    <string name="album">"Album"</string>
+    <string name="advertising">"Advertising"</string>
+    <string name="move">"Move"</string>
+    <string name="basics">"Basics"</string>
+    <string name="couple">"Couple"</string>
+    <string name="close">"Close"</string>
+    <string name="background">"Background"</string>
+    <string name="start">"Start"</string>
+    <string name="save">"Save"</string>
+    <string name="delete">"Delete"</string>
+    <string name="invite">"Invite"</string>
+    <string name="cancel">"Cancel"</string>
+    <string name="date">"Date"</string>
+    <string name="day">"Day"</string>
+    <string name="title">"Title"</string>
+    <string name="lifetime">"Lifetime"</string>
+    <string name="name">"Name"</string>
+    <string name="birth">"Birth"</string>
+    <string name="anniversary">st Anniversary</string>
+    <string name="anniversary_two">"Anniversary"</string>
+    <string name="number">"Number"</string>
+    <string name="repeat">"Repeat"</string>
+    <string name="content">"Content"</string>
+
+    <string name="start_date">"Start date"</string>
+    <string name="day_ticket">"1 Day"</string>
+    <string name="watch_videos">"Watch videos"</string>
+    <string name="one_day_start">"Starting from 0 day"</string>
+    <string name="repeat_every_year">"Repeat every year"</string>
+    <string name="repeat_monthly">"Repeat monthly"</string>
+    <string name="add_album">"Add album"</string>
+    <string name="add_anniversary">"Add anniversary"</string>
+    <string name="edit_image">"Edit Image"</string>
+    <string name="advertising_remove">"Remove Advertising"</string>
+    <string name="service_center">"Service center"</string>
+    <string name="contact_us">"Contact us"</string>
+    <string name="add_review">"Add Review"</string>
+    <string name="view_format">"View Format"</string>
+    <string name="days_ago">" days ago"</string>
+    <string name="days_remaining">" days remaining"</string>
+    <string name="favorites_list">"Favorites List"</string>
+    <string name="fix_the_top_bar">"Fix the top bar"</string>
+    <string name="enable_tip">"Enable Tip"</string>
+    <string name="version_information">"Version Information"</string>
+    <string name="couple_setting">"Couple Setting"</string>
+    <string name="delete_album">"Delete Album"</string>
+    <string name="delete_album_message">"Are you sure you want to delete this album?"</string>
+    <string name="delete_album_image">"Are you sure you want to delete this image?"</string>
+    <string name="top_bar">"Top Bar"</string>
+    <string name="top_bar_style">"Top Bar Style"</string>
+
+
+    <string name="empty_title">"Get Started"</string>
+    <string name="empty_album_content">"Please register a new album.\nPretty cards are registered."</string>
+    <string name="empty_couple_content">"Please register a couple.\nA pretty anniversary is registered."</string>
+    <string name="empty_album_like">"I do not have any albums I liked."</string>
+
+
+    <!--hint-->
+    <string name="hint_title">"Please enter your title."</string>
+    <string name="hint_content">"Please enter your content."</string>
+    <string name="hint_love">"We love you❤"</string>
+    <string name="hint_start_date">"Please enter start date."</string>
+    <string name="hint_date">"Please select a date."</string>
+    <string name="hint_number">"Please enter the counterpart number."</string>
+
+    <!--tip-->
+    <string name="tip_image_multiple">"Tip : Long click to select multiple images."</string>
+    <string name="tip_album_item">"Tip : Long click to move the item.\nSwipe from right to left to erase items."</string>
+    <string name="tip_anniversary">"Tip : Swipe from right to left to erase items."</string>
+    <string name="tip_album_list">"Tip : When you click the album button, the entire list and favorites list are toggled."</string>
+
+    <!--error-->
+    <string name="error_permission">"Permissions must be allowed to use."</string>
+    <string name="error_image">"Image upload error."</string>
+    <string name="error_title">"Please enter the title"</string>
+    <string name="error_date">"Please select a date."</string>
+    <string name="error_email">"There are no email applications installed."</string>
+    <string name="error_default">"Please use after a while. If the same symptom is repeated, please contact the developer."</string>
+
+
+    <string name="valentine_day">Valentine Day</string>
+    <string name="white_day">White Day</string>
+    <string name="rose_day">Rose Day</string>
+    <string name="kiss_day">Kiss Day</string>
+    <string name="pepero_day">Pepero Day</string>
+    <string name="hug_day">Hug Day</string>
+    <string name="christmas">Christmas</string>
+
+    <string name="shared_title">Invite</string>
+    <string name="shared_message">I recommend App to you! :)</string>
+    <string name="shared_call_to_action_text">Install!</string>
+</resources>

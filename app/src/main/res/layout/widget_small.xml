@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_main_card">
+
+
+    <RelativeLayout
+        android:id="@+id/layout_one_couple_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_circle">
+
+        <ImageView
+            android:id="@+id/image_one_couple"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/image_one_couple_none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_circle"
+            android:padding="8dp"
+            android:src="@drawable/ic_profile_p_64px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_two_couple_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_circle">
+
+        <ImageView
+            android:id="@+id/image_two_couple"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/image_two_couple_none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_circle"
+            android:padding="8dp"
+            android:src="@drawable/ic_profile_p_64px" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_couple_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/layout_two_couple_image"
+        android:layout_toRightOf="@+id/layout_two_couple_image"
+        android:gravity="start"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/text_ment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:hint="@string/hint_love"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_dday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="219일" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/layout_phone"
+        android:layout_toStartOf="@+id/layout_phone"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_sms_64px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_phone_64px" />
+    </RelativeLayout>
+
+</RelativeLayout>

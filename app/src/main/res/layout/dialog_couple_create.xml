@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="CoupleCreateBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="code"
+            type="tsdday.com.yts.tsdday.util.RequestCode" />
+
+        <variable
+            name="model"
+            type="tsdday.com.yts.tsdday.viewmodel.CoupleViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <!--헤더-->
+        <LinearLayout
+            android:id="@+id/layout_hearder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="4dp"
+            android:gravity="center_vertical"
+            android:onClick="@{(v)->model.hideKeyBoard(v)}"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_close"
+                setTint="@{true}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:onClick="@{(v) -> model.close(v)}"
+                android:padding="16dp"
+                app:srcCompat="@drawable/ic_keyboard_backspace_black_24dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/couple_setting"
+
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="@{(v) -> model.hideKeyBoard(v)}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+
+                <!--기본-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/basics"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="12sp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="@string/start_date"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="end"
+                        android:hint="@string/hint_start_date"
+                        android:onClick="@{() -> model.onClickDate(model.mCouple.startDate,model.DATE_START_DATE_TYPE)}"
+                        android:padding="16dp"
+                        android:text="@{model.mCouple.startDate}"
+                        android:textColorHint="@color/gray_dark"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="@string/number"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="end"
+                        android:hint="@string/hint_number"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:onTextChanged="@{(text, start, before, count) -> model.onTextChanged(text,model.EDIT_COPLE_NUMBER)}"
+                        android:padding="16dp"
+                        android:text="@{model.mCouple.number}"
+                        android:textColorHint="@color/gray_dark"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/one_day_start"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@{model.mCouple!=null? model.mCouple.getStartOne():false}"
+                        android:onClick="@{()->(model.onClickStartOne())}" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_light" />
+
+                <!-- 커플-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/couple"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="12sp" />
+
+                <!--One 커플-->
+                <LinearLayout
+                    android:id="@+id/layout_one_couple"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/background_circle">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image_one_couple"
+                            setImageCircle="@{model.mCouple.oneUser.imageData}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:onClick="@{()->model.onClickImage(code.oneCoupleSelect)}" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            setTint="@{true}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/background_circle"
+                            android:padding="8dp"
+                            android:visibility="@{model.mCouple.twoUser.imageData!=null? View.GONE:View.VISIBLE}"
+                            app:srcCompat="@drawable/ic_person_black_40dp" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edit_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusableInTouchMode="true"
+                                android:hint="@string/name"
+                                android:imeOptions="actionDone"
+                                android:inputType="text"
+                                android:onTextChanged="@{(text, start, before, count) -> model.onTextChanged(text,model.EDIT_ONE_NAME)}"
+
+                                android:text="@{model.mCouple.oneUser.name}"
+
+                                android:textSize="12sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edit_birth"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/birth"
+                                android:onClick="@{() -> model.onClickDate(model.mCouple.oneUser.birth,model.DATE_ONE_USER_BIRTH_TYPE)}"
+                                android:text="@{model.mCouple.oneUser.birth}"
+                                android:textSize="12sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <!--Two 커플-->
+                <LinearLayout
+                    android:id="@+id/layout_two_couple"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/background_circle">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image_two_couple"
+                            setImageCircle="@{model.mCouple.twoUser.imageData}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:onClick="@{()->model.onClickImage(code.twoCoupleSelect)}" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            setTint="@{true}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/background_circle"
+                            android:padding="8dp"
+                            android:visibility="@{model.mCouple.twoUser.imageData!=null? View.GONE:View.VISIBLE}"
+                            app:srcCompat="@drawable/ic_person_black_40dp" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edit_name_two"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusableInTouchMode="true"
+                                android:hint="@string/name"
+                                android:imeOptions="actionDone"
+                                android:inputType="text"
+                                android:onTextChanged="@{(text, start, before, count) -> model.onTextChanged(text,model.EDIT_TWO_NAME)}"
+                                android:text="@{model.mCouple.twoUser.name}"
+                                android:textSize="12sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edit_birth_two"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/birth"
+                                android:onClick="@{() -> model.onClickDate(model.mCouple.twoUser.birth,model.DATE_TWO_USER_BIRTH_TYPE)}"
+                                android:text="@{model.mCouple.twoUser.birth}"
+                                android:textSize="12sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_light" />
+                <!--배경-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/background"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/colorPrimaryLight"
+                    app:cardCornerRadius="8dp"
+                    app:cardUseCompatPadding="true">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layout_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintDimensionRatio="1:0.56">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                setImage="@{model.mCouple.background}"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:onClick="@{()->model.onClickImage(code.backgroundSelect)}"
+                                android:scaleType="centerCrop" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                setTint="@{true}"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:visibility="@{model.mCouple.background==null? View.VISIBLE : View.GONE}"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_favorite_black_48dp" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toBottomOf="@id/layout_image">
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:focusableInTouchMode="true"
+                                android:gravity="center"
+                                android:hint="@string/hint_content"
+                                android:onTextChanged="@{(text, start, before, count) -> model.onTextChanged(text,model.EDIT_COUPLE_MENT)}"
+                                android:paddingBottom="8dp"
+                                android:paddingLeft="16dp"
+                                android:paddingRight="16dp"
+                                android:paddingTop="16dp"
+                                android:text="@{model.mCouple.ment}"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                setDday="@{model.mCouple.get()}"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="16dp"
+                                android:gravity="center"
+                                android:text="@{model.mCouple.startDate}"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

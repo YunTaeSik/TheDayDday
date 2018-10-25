@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+apply plugin: 'realm-android'
+
+android {
+    signingConfigs {
+        release {
+            keyAlias 'yts'
+            keyPassword 'yts794652@'
+            storeFile file('C:/Users/taesik/StudioProjects/TSDday/key.jks')
+            storePassword 'yts794652@'
+        }
+    }
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "tsdday.com.yts.tsdday"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 33
+        versionName "1.4.1"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    dataBinding {
+        enabled = true
+    }
+    realm {
+        syncEnabled = true
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            pseudoLocalesEnabled true
+            proguardFile 'C:/Users/taesik/StudioProjects/TSDday/app/proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.core:core:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.media:media:1.0.0'
+    implementation 'androidx.browser:browser:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.palette:palette:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.14'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'androidx.annotation:annotation:1.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'com.airbnb.android:lottie:2.8.0'
+    implementation 'gun0912.ted:tedpermission:2.2.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.4'
+    implementation 'com.google.firebase:firebase-invites:16.0.4'
+    implementation 'com.google.firebase:firebase-ads:16.0.1'
+    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
+    implementation 'com.github.chrisbanes:PhotoView:2.1.4'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.github.yalantis:ucrop:2.2.2'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.5'
+    implementation 'com.android.billingclient:billing:1.1'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+}
+apply plugin: 'com.google.gms.google-services'

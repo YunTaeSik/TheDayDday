@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ImageViewerBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="tsdday.com.yts.tsdday.viewmodel.ImageViewerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/image_photo"
+            setImage="@{model.imageData}"
+            setPhotoView="@{true}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(v)->model.close(v)}"
+            android:padding="16dp"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/ic_keyboard_backspace_black_24dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

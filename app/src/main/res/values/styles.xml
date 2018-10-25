@@ -1,0 +1,46 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorControlNormal">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/colorAccent</item>
+        <item name="android:shadowColor">@color/colorAccent</item>
+        <item name="android:textColorHighlight">@color/colorAccent</item>
+
+        <item name="android:actionMenuTextColor">@color/colorAccent</item>
+
+        <item name="android:colorButtonNormal" tools:targetApi="lollipop">@color/white</item>
+        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
+    </style>
+
+    <style name="AppThemeTwo" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryTwo</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkTwo</item>
+        <item name="colorAccent">@color/colorAccentTwo</item>
+
+        <item name="colorControlNormal">@color/colorAccentTwo</item>
+        <item name="colorControlActivated">@color/colorAccentTwo</item>
+        <item name="colorControlHighlight">@color/colorAccentTwo</item>
+
+        <item name="android:textColor">@color/colorAccentTwo</item>
+        <item name="android:textColorHint">@color/colorAccentTwo</item>
+        <item name="android:shadowColor">@color/colorAccentTwo</item>
+        <item name="android:textColorHighlight">@color/colorAccentTwo</item>
+
+        <item name="android:actionMenuTextColor">@color/colorAccentTwo</item>
+
+        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="test_device">"1AAF5C26F373E0C2E84FCD5A8FB409BF"</string>
+    <string name="ad_app_id">"ca-app-pub-9788292917303375~7143049504"</string>
+    <string name="banner_ad_id">"ca-app-pub-9788292917303375/7502142157"</string>
+    <string name="screen_ad_id">"ca-app-pub-9788292917303375/3179753762"</string>
+    <string name="reward_ad_id">"ca-app-pub-9788292917303375/3590817309"</string>
+
+    <string name="notification_channel_id">"notification_ts_channel_id"</string>
+    <string name="notification_channel_name">"notification_ts_channel_name"</string>
+
+    <string name="action_notification_click_phone">"ACTION_NOTIFICATION_CLICK_PHONE"</string>
+
+
+    <string name="invitation_deep_link">"https://sn3d4.app.goo.gl/TsDday"</string>
+
+    <string name="app_name">"더데이 디데이"</string>
+    <string name="contact_email">"sky877kr@gmail.com"</string>
+    <string name="title_home">"홈"</string>
+    <string name="title_setting">"설정"</string>
+    <string name="title_album">"앨범"</string>
+    <string name="title_dashboard">"대쉬보드"</string>
+    <string name="title_notifications">"알람"</string>
+
+    <string name="list">"List"</string>
+    <string name="grid">"Grid"</string>
+    <string name="advertising">"광고"</string>
+    <string name="move">"이동"</string>
+    <string name="album">"앨범"</string>
+    <string name="basics">"기본"</string>
+    <string name="couple">"커플"</string>
+    <string name="background">"배경"</string>
+    <string name="start">"시작"</string>
+    <string name="save">"저장"</string>
+    <string name="cancel">"취소"</string>
+    <string name="close">"닫기"</string>
+    <string name="delete">"삭제"</string>
+    <string name="date">"날짜"</string>
+    <string name="invite">"초대하기"</string>
+    <string name="title">"제목"</string>
+    <string name="lifetime">"평생권"</string>
+    <string name="name">"이름"</string>
+    <string name="birth">"생일"</string>
+    <string name="day">"일"</string>
+    <string name="anniversary">" 주년"</string>
+    <string name="anniversary_two">"기념일"</string>
+    <string name="start_date">"시작일"</string>
+    <string name="number">"번호"</string>
+    <string name="repeat">"반복"</string>
+    <string name="content">"내용"</string>
+
+    <string name="day_ticket">"하루 이용권"</string>
+    <string name="watch_videos">"동영상 시청"</string>
+    <string name="repeat_every_year">"매년 반복"</string>
+    <string name="repeat_monthly">"매달 반복"</string>
+    <string name="couple_setting">"커플 설정"</string>
+    <string name="add_album">"앨범 추가"</string>
+    <string name="add_anniversary">"기념일 추가"</string>
+    <string name="edit_image">"이미지 편집"</string>
+    <string name="delete_album">"앨범 삭제"</string>
+    <string name="delete_album_message">"앨범 삭제 하시겠습니까?"</string>
+    <string name="delete_album_image">"이미지를 삭제 하시겠습니까?"</string>
+    <string name="advertising_remove">"광고 제거"</string>
+    <string name="add_review">"리뷰 달기"</string>
+    <string name="view_format">"뷰 형식"</string>
+    <string name="top_bar">"상단바"</string>
+    <string name="top_bar_style">"상단바 스타일"</string>
+
+    <string name="one_day_start">"0일부터 시작"</string>
+
+
+    <string name="days_ago">"일 지남"</string>
+    <string name="days_remaining">"일 남음"</string>
+
+
+    <string name="favorites_list">"즐겨찾기 목록"</string>
+    <string name="version_information">"버전 정보"</string>
+    <string name="service_center">"고객센터"</string>
+    <string name="contact_us">"문의하기"</string>
+
+    <string name="fix_the_top_bar">"상단바 고정"</string>anniversary_two
+    <string name="enable_tip">"팁 활성화"</string>
+
+    <!--empty-->
+    <string name="empty_title">"시작하기"</string>
+    <string name="empty_couple_content">"커플을 등록해주세요.\n 예쁜 기념일이 등록됩니다."</string>
+    <string name="empty_album_content">"새로운 앨범을 등록해주세요.\n 예쁜 카드들이 등록됩니다."</string>
+    <string name="empty_album_like">"좋아요를 누른 앨범이 없습니다."</string>
+
+    <!--hint-->
+    <string name="hint_content">"내용을 입력해주세요."</string>
+    <string name="hint_title">"제목을 입력해주세요."</string>
+    <string name="hint_love">"우리 사랑한지 ❤"</string>
+    <string name="hint_start_date">"시작일을 입력해주세요."</string>
+    <string name="hint_date">"날짜를 선택해주세요."</string>
+    <string name="hint_number">"상대방 번호를 입력해주세요."</string>
+
+    <!--tip-->
+    <string name="tip_image_multiple">"Tip : 길게 누르면 이미지 여러 개를 선택 할 수 있습니다."</string>
+    <string name="tip_album_item">"Tip : 길게 누르면 아이템을 이동시킬 수 있습니다.\n      오른쪽에서 왼쪽으로 당기면 아이템을 지울 수 있습니다."</string>
+    <string name="tip_anniversary">"Tip : 오른쪽에서 왼쪽으로 당기면 아이템을 지울 수 있습니다."</string>
+    <string name="tip_album_list">"Tip : 앨범 버튼 클릭 시 전체 목록, 즐겨찾기 목록이 토글 됩니다."</string>
+
+    <!--error-->
+    <string name="error_permission">"권한을 허용해야 사용 할 수 있습니다."</string>
+    <string name="error_image">"이미지 업로드 오류입니다."</string>
+    <string name="error_title">"제목을 입력해주세요."</string>
+    <string name="error_date">"날짜를 선택해주세요."</string>
+    <string name="error_email">"설치된 이메일 프로그램이 없습니다.."</string>
+    <string name="error_default">"잠시 후 이용해주세요. 같은 증상이 반복되면 개발자에게 문의해주세요."</string>
+
+
+    <!--dday-->
+    <string name="valentine_day">발렌타인 데이</string>
+    <string name="white_day">화이트 데이</string>
+    <string name="rose_day">로즈 데이</string>
+    <string name="kiss_day">키스 데이</string>
+    <string name="pepero_day">빼빼로 데이</string>
+    <string name="hug_day">허그 데이</string>
+    <string name="christmas">크리스마스</string>
+
+    <string name="shared_title">초대하기</string>
+    <string name="shared_message">지인에게 어플을 초대합니다! :)</string>
+    <string name="shared_call_to_action_text">설치하기</string>
+
+</resources>
