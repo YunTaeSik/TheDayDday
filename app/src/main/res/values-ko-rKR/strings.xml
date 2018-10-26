@@ -60,6 +60,7 @@
     <string name="delete_album">"앨범 삭제"</string>
     <string name="delete_album_message">"앨범 삭제 하시겠습니까?"</string>
     <string name="delete_album_image">"이미지를 삭제 하시겠습니까?"</string>
+    <string name="delete_anniversary">"기념일을 삭제 하시겠습니까?"</string>
     <string name="advertising_remove">"광고 제거"</string>
     <string name="add_review">"리뷰 달기"</string>
     <string name="view_format">"뷰 형식"</string>
@@ -98,7 +99,7 @@
     <!--tip-->
     <string name="tip_image_multiple">"Tip : 길게 누르면 이미지 여러 개를 선택 할 수 있습니다."</string>
     <string name="tip_album_item">"Tip : 길게 누르면 아이템을 이동시킬 수 있습니다.\n      오른쪽에서 왼쪽으로 당기면 아이템을 지울 수 있습니다."</string>
-    <string name="tip_anniversary">"Tip : 오른쪽에서 왼쪽으로 당기면 아이템을 지울 수 있습니다."</string>
+    <string name="tip_anniversary">"Tip : 길게 누르면 아이템을 지울 수 있습니다."</string>
     <string name="tip_album_list">"Tip : 앨범 버튼 클릭 시 전체 목록, 즐겨찾기 목록이 토글 됩니다."</string>
 
     <!--error-->

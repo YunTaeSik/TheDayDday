@@ -9,6 +9,7 @@ public class Keys {
     public final static String VIEW_FORMAT_IS_GRID = "viewFormatIsGrid";
 
     public final static String EMPTY = "empty";
+    public final static String TITLE = "title";
     public final static String DATE = "date";
     public final static String POSITION = "position";
 
@@ -52,6 +53,8 @@ public class Keys {
     public final static String SEND_LIKE = "sendLike";
     public final static String SEND_DELETE = "sendDelete";
     public final static String SEND_DELETE_ALBUM_IMAGE = "sendDeleteAlbumImage";
+
+    public final static String SEND_DELETE_ANNIVERSARY = "sendDeleteAnniversary";
 
     public final static String SEND_IMAGE_URLS = "sendImageUrls";
     public final static String SEND_START_DATE_DIALOG = "sendStartDateDialog";

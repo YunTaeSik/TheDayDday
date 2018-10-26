@@ -9,14 +9,16 @@
 
         <variable
             name="model"
-            type="tsdday.com.yts.tsdday.model.Anniversary" />
+            type="tsdday.com.yts.tsdday.viewmodel.AnniversaryViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:foreground="?android:selectableItemBackgroundBorderless"
+        android:onLongClick="@{(v)->model.delete(v)}">
 
         <LinearLayout
             android:id="@+id/layout_delete"
@@ -55,17 +57,17 @@
             android:background="@color/white">
 
             <TextView
-                setAnniversaryTextColor="@{model}"
+                setAnniversaryTextColor="@{model.mAnniversary}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
                 android:paddingLeft="16dp"
-                android:paddingRight="16dp"
                 android:paddingTop="8dp"
-                android:text="@{model.title}"
+                android:paddingRight="16dp"
+                android:paddingBottom="8dp"
+                android:text="@{model.mAnniversary.title}"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/layout_right"
+                app:layout_constraintBottom_toBottomOf="@+id/layout_right"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
@@ -74,26 +76,26 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical|right"
                 android:orientation="vertical"
-                android:paddingBottom="8dp"
                 android:paddingLeft="16dp"
-                android:paddingRight="16dp"
                 android:paddingTop="8dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="8dp"
                 app:layout_constraintRight_toRightOf="parent">
 
                 <TextView
-                    setAnniversaryTextColor="@{model}"
+                    setAnniversaryTextColor="@{model.mAnniversary}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:text="@{model.date}"
+                    android:text="@{model.mAnniversary.date}"
                     android:textSize="12sp" />
 
                 <TextView
-                    setAnniversaryTextColor="@{model}"
+                    setAnniversaryTextColor="@{model.mAnniversary}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@{model.ddayString}"
+                    android:text="@{model.mAnniversary.ddayString}"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 

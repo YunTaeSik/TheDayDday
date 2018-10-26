@@ -32,4 +32,11 @@ public class AlertDialogCreate {
         alertDialog.setPositiveButton(R.string.delete, clickListener);
         alertDialog.show();
     }
+
+    public void deleteAnniversary(DialogInterface.OnClickListener clickListener) {
+        alertDialog.setTitle(R.string.delete);
+        alertDialog.setMessage(R.string.delete_anniversary);
+        alertDialog.setPositiveButton(R.string.delete, clickListener);
+        alertDialog.show();
+    }
 }

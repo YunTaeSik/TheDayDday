@@ -1,10 +1,12 @@
 package tsdday.com.yts.tsdday.ui.adapter;
 
 import android.content.Context;
+
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ObservableArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 
 import android.view.ViewGroup;
@@ -19,6 +21,7 @@ import tsdday.com.yts.tsdday.databinding.CoupleHeaderBinding;
 import tsdday.com.yts.tsdday.model.Anniversary;
 import tsdday.com.yts.tsdday.model.Couple;
 
+import tsdday.com.yts.tsdday.viewmodel.AnniversaryViewModel;
 import tsdday.com.yts.tsdday.viewmodel.CoupleViewModel;
 
 public class HomeListAdapter extends RecyclerView.Adapter {
@@ -82,7 +85,9 @@ public class HomeListAdapter extends RecyclerView.Adapter {
             if (item instanceof Anniversary) {
                 Anniversary anniversary = (Anniversary) item;
                 AnniversaryViewHolder holder = (AnniversaryViewHolder) viewHolder;
-                holder.binding.setVariable(BR.model, anniversary);
+                AnniversaryViewModel model = new AnniversaryViewModel(mContext);
+                model.setAnniversary(anniversary);
+                holder.setViewModel(model);
                 holder.binding.executePendingBindings();
             }
 
@@ -118,6 +123,12 @@ public class HomeListAdapter extends RecyclerView.Adapter {
             super(binding.getRoot());
             this.binding = binding;
         }
+
+        public void setViewModel(AnniversaryViewModel viewModel) {
+            binding.setModel(viewModel);
+            binding.executePendingBindings();
+        }
+
 
     }
 }

@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.ads.AdListener;
@@ -25,16 +24,14 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import io.reactivex.functions.Consumer;
 import tsdday.com.yts.tsdday.BaseActivity;
 import tsdday.com.yts.tsdday.R;
 import tsdday.com.yts.tsdday.databinding.MainViewBinding;
 import tsdday.com.yts.tsdday.interactor.Interactor;
 import tsdday.com.yts.tsdday.interactor.OnPremiumInspection;
-import tsdday.com.yts.tsdday.ui.fragment.HomeFragment;
 import tsdday.com.yts.tsdday.ui.fragment.AlbumFragment;
+import tsdday.com.yts.tsdday.ui.fragment.HomeFragment;
 import tsdday.com.yts.tsdday.ui.fragment.SettingFragment;
-import tsdday.com.yts.tsdday.util.Convert;
 import tsdday.com.yts.tsdday.util.DateFormat;
 import tsdday.com.yts.tsdday.util.JobSchedulerStart;
 import tsdday.com.yts.tsdday.util.Keys;
@@ -42,7 +39,6 @@ import tsdday.com.yts.tsdday.util.RequestCode;
 import tsdday.com.yts.tsdday.util.SendBroadcast;
 import tsdday.com.yts.tsdday.util.SharedPrefsUtils;
 import tsdday.com.yts.tsdday.util.ShowIntent;
-import tsdday.com.yts.tsdday.util.ToastMake;
 import tsdday.com.yts.tsdday.viewmodel.MainViewModel;
 
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener, Interactor, View.OnClickListener, OnPremiumInspection {

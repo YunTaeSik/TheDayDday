@@ -69,6 +69,13 @@ public class SendBroadcast {
         context.sendBroadcast(send);
     }
 
+    public static void deleteAnniversary(Context context, String title, int position) {
+        Intent send = new Intent(Keys.SEND_DELETE_ANNIVERSARY);
+        send.putExtra(Keys.TITLE, title);
+        send.putExtra(Keys.POSITION, position);
+        context.sendBroadcast(send);
+    }
+
     public static void addAlbum(Context context, ArrayList<String> imageUrls) {
         Intent send = new Intent(Keys.SEND_IMAGE_URLS);
         send.putExtra(Keys.IMAGE_URLS, imageUrls);

@@ -2,16 +2,19 @@ package tsdday.com.yts.tsdday.ui.adapter;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ObservableArrayList;
-import androidx.databinding.ObservableList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 
 import tsdday.com.yts.tsdday.R;
+import tsdday.com.yts.tsdday.databinding.AlbumListItemBinding;
 import tsdday.com.yts.tsdday.databinding.AnniversaryBinding;
 import tsdday.com.yts.tsdday.model.Anniversary;
+import tsdday.com.yts.tsdday.viewmodel.AlbumViewModel;
+import tsdday.com.yts.tsdday.viewmodel.AnniversaryViewModel;
 
 public class AnniversaryAdapter extends RecyclerView.Adapter {
     public ObservableArrayList<Anniversary> anniversaryList;
@@ -42,10 +45,12 @@ public class AnniversaryAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
-        Anniversary anniversary = anniversaryList.get(position);
         AnniversaryViewHolder holder = (AnniversaryViewHolder) viewHolder;
-     //   holder.binding.setVariable(BR.model, anniversary);
-        holder.binding.executePendingBindings();
+        Anniversary anniversary = anniversaryList.get(position);
+        AnniversaryViewModel model = new AnniversaryViewModel(holder.itemView.getContext());
+        model.setAnniversary(anniversary);
+        model.setPosition(position);
+        holder.setViewModel(model);
     }
 
     @Override
@@ -65,10 +70,18 @@ public class AnniversaryAdapter extends RecyclerView.Adapter {
 
         }
 
+        public void setViewModel(AnniversaryViewModel viewModel) {
+            binding.setModel(viewModel);
+            binding.executePendingBindings();
+        }
+
         public AnniversaryBinding getBinding() {
             return binding;
         }
 
+        public AnniversaryViewModel getModel() {
+            return binding.getModel();
+        }
     }
 
 }
