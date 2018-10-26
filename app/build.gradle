@@ -16,8 +16,8 @@ android {
         applicationId "tsdday.com.yts.tsdday"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 35
-        versionName "1.5.0"
+        versionCode 36
+        versionName "1.5.1"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

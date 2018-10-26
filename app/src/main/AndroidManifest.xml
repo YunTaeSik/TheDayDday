@@ -22,6 +22,9 @@
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"
             android:value="true" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9788292917303375~7143049504" />
 
         <activity
             android:name=".ui.activity.IntroActivity"
