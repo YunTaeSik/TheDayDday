@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
 
@@ -88,14 +89,35 @@ public class BigWidget extends AppWidgetProvider {
             PendingIntent smsIntent = PendingIntent.getActivity(context, 2, sms, PendingIntent.FLAG_UPDATE_CURRENT);
             remoteViews.setOnClickPendingIntent(R.id.layout_sms, smsIntent);
 
+            int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, context.getResources().getDisplayMetrics());
+
             AppWidgetTarget oneUserTarget = new AppWidgetTarget(context, R.id.image_one_couple, remoteViews, widgetId);
-            GlideApp.with(context).asBitmap().override(120, 120).circleCrop().load(couple.getOneUser().getImageData()).into(oneUserTarget);
+            String oneUserImageDataPath = couple.getOneUser().getImageDataPath();
+            byte[] oneUserImageData = couple.getOneUser().getImageData();
+            if (oneUserImageDataPath != null && oneUserImageDataPath.length() > 0) {
+                GlideApp.with(context).asBitmap().circleCrop().load(oneUserImageDataPath).override(size).into(oneUserTarget);
+            } else if (oneUserImageData != null) {
+                GlideApp.with(context).asBitmap().circleCrop().load(oneUserImageData).override(size).into(oneUserTarget);
+            }
 
             AppWidgetTarget twoUserTarget = new AppWidgetTarget(context, R.id.image_two_couple, remoteViews, widgetId);
-            GlideApp.with(context).asBitmap().override(120, 120).circleCrop().load(couple.getTwoUser().getImageData()).into(twoUserTarget);
+            String twoUserImageDataPath = couple.getTwoUser().getImageDataPath();
+            byte[] twoUserImageData = couple.getTwoUser().getImageData();
+            if (twoUserImageDataPath != null && twoUserImageDataPath.length() > 0) {
+                GlideApp.with(context).asBitmap().circleCrop().load(twoUserImageDataPath).override(size).into(twoUserTarget);
+            } else if (twoUserImageData != null) {
+                GlideApp.with(context).asBitmap().circleCrop().load(twoUserImageData).override(size).into(twoUserTarget);
+            }
 
             AppWidgetTarget coupleBackgroundTarget = new AppWidgetTarget(context, R.id.image_couple_background, remoteViews, widgetId);
-            GlideApp.with(context).asBitmap().override(480, 240).centerCrop().load(couple.getBackground()).into(coupleBackgroundTarget);
+            String coupleBackgroundPath = couple.getBackgroundPath();
+            byte[] coupleBackground = couple.getBackground();
+            if (coupleBackgroundPath != null && coupleBackgroundPath.length() > 0) {
+                GlideApp.with(context).asBitmap().override(480, 240).centerCrop().load(coupleBackgroundPath).into(coupleBackgroundTarget);
+            } else if (coupleBackground != null) {
+                GlideApp.with(context).asBitmap().override(480, 240).centerCrop().load(coupleBackground).into(coupleBackgroundTarget);
+            }
+
 
             /*전체 클릭이벤트*/
             Intent intro = new Intent(context, IntroActivity.class);

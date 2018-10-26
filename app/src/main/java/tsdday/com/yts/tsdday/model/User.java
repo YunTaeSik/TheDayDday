@@ -32,4 +32,12 @@ public class User extends RealmObject {
     public void setImageData(byte[] imageData) {
         this.imageData = imageData;
     }
+
+    public String getImageDataPath() {
+        return imageDataPath;
+    }
+
+    public void setImageDataPath(String imageDataPath) {
+        this.imageDataPath = imageDataPath;
+    }
 }

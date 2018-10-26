@@ -68,10 +68,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/basics"
                     android:textColor="@color/gray_dark"
                     android:textSize="12sp" />
@@ -140,10 +140,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -171,8 +171,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:text="@string/couple"
                     android:textColor="@color/gray_dark"
                     android:textSize="12sp" />
@@ -192,30 +192,31 @@
                         android:background="@drawable/background_circle">
 
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/image_one_couple"
-                            setImageCircle="@{model.mCouple.oneUser.imageData}"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:onClick="@{()->model.onClickImage(code.oneCoupleSelect)}" />
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            setTint="@{true}"
+                            setVisible="@{model.mCouple.oneUser}"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/background_circle"
                             android:padding="8dp"
-                            android:visibility="@{model.mCouple.twoUser.imageData!=null? View.GONE:View.VISIBLE}"
                             app:srcCompat="@drawable/ic_person_black_40dp" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image_one_couple"
+                            setImageCircle="@{model.mCouple.oneUser}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:onClick="@{()->model.onClickImage(code.oneCoupleSelect)}" />
+
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
                         android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
                         android:orientation="vertical">
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -269,31 +270,33 @@
                         android:layout_height="56dp"
                         android:background="@drawable/background_circle">
 
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/image_two_couple"
-                            setImageCircle="@{model.mCouple.twoUser.imageData}"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:onClick="@{()->model.onClickImage(code.twoCoupleSelect)}" />
 
                         <androidx.appcompat.widget.AppCompatImageView
                             setTint="@{true}"
+                            setVisible="@{model.mCouple.twoUser}"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/background_circle"
                             android:padding="8dp"
-                            android:visibility="@{model.mCouple.twoUser.imageData!=null? View.GONE:View.VISIBLE}"
                             app:srcCompat="@drawable/ic_person_black_40dp" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image_two_couple"
+                            setImageCircle="@{model.mCouple.twoUser}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:onClick="@{()->model.onClickImage(code.twoCoupleSelect)}" />
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
                         android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
                         android:orientation="vertical">
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -341,8 +344,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:text="@string/background"
                     android:textColor="@color/gray_dark"
                     android:textSize="12sp" />
@@ -350,10 +353,10 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
                     android:layout_marginLeft="4dp"
-                    android:layout_marginRight="4dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginBottom="16dp"
                     app:cardBackgroundColor="@color/colorPrimaryLight"
                     app:cardCornerRadius="8dp"
                     app:cardUseCompatPadding="true">
@@ -370,23 +373,25 @@
                             android:layout_height="0dp"
                             app:layout_constraintDimensionRatio="1:0.56">
 
-                            <androidx.appcompat.widget.AppCompatImageView
-                                setImage="@{model.mCouple.background}"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:onClick="@{()->model.onClickImage(code.backgroundSelect)}"
-                                android:scaleType="centerCrop" />
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 setTint="@{true}"
+                                setVisible="@{model.mCouple}"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:visibility="@{model.mCouple.background==null? View.VISIBLE : View.GONE}"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintLeft_toLeftOf="parent"
                                 app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:srcCompat="@drawable/ic_favorite_black_48dp" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                setImage="@{model.mCouple}"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:onClick="@{()->model.onClickImage(code.backgroundSelect)}"
+                                android:scaleType="centerCrop" />
+
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <LinearLayout
@@ -395,7 +400,7 @@
                             android:background="@color/white"
                             android:gravity="center"
                             android:orientation="vertical"
-                            app:layout_constraintTop_toBottomOf="@id/layout_image">
+                            app:layout_constraintTop_toBottomOf="@+id/layout_image">
 
                             <androidx.appcompat.widget.AppCompatEditText
                                 android:layout_width="wrap_content"
@@ -405,10 +410,10 @@
                                 android:gravity="center"
                                 android:hint="@string/hint_content"
                                 android:onTextChanged="@{(text, start, before, count) -> model.onTextChanged(text,model.EDIT_COUPLE_MENT)}"
-                                android:paddingBottom="8dp"
                                 android:paddingLeft="16dp"
-                                android:paddingRight="16dp"
                                 android:paddingTop="16dp"
+                                android:paddingRight="16dp"
+                                android:paddingBottom="8dp"
                                 android:text="@{model.mCouple.ment}"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />

@@ -108,7 +108,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     }
 
 
-
     private void setAd() {
         binding.adview.loadAd(adRequest);
         interstitialAd.setAdListener(new AdListener() {
@@ -265,17 +264,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 ShowIntent.imageCroup(this, data, RequestCode.twoCoupleCrop);
             } else if (requestCode == RequestCode.backgroundCrop || requestCode == RequestCode.oneCoupleCrop || requestCode == RequestCode.twoCoupleCrop) {
                 if (mHomeFragment != null) {
-                    compositeDisposable.add(Convert.filePathToByteArray(this, UCrop.getOutput(data).getPath()).subscribe(new Consumer<byte[]>() {
-                        @Override
-                        public void accept(byte[] bytes) throws Exception {
-                            mHomeFragment.getModel().setCropImageData(bytes, requestCode);
-                        }
-                    }, new Consumer<Throwable>() {
-                        @Override
-                        public void accept(Throwable throwable) throws Exception {
-                            ToastMake.make(getApplicationContext(),R.string.error_image);
-                        }
-                    }));
+                    mHomeFragment.getModel().setCropImageData(UCrop.getOutput(data).getPath(), requestCode);
                 }
             }
         }

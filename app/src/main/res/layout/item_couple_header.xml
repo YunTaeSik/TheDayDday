@@ -50,47 +50,51 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/image_one_couple"
-                            setImageCircle="@{model.mCouple.oneUser.imageData}"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <androidx.appcompat.widget.AppCompatImageView
                             setTint="@{true}"
+                            setVisible="@{model.mCouple.twoUser}"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/background_circle"
                             android:padding="8dp"
-                            android:visibility="@{model.mCouple.twoUser.imageData!=null? View.GONE:View.VISIBLE}"
                             app:srcCompat="@drawable/ic_person_black_24dp" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image_one_couple"
+                            setImageCircle="@{model.mCouple.oneUser}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/layout_two_couple_image"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_marginBottom="16dp"
                         android:layout_marginLeft="32dp"
                         android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
                         android:background="@drawable/background_circle"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="@id/layout_one_couple_image"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/image_two_couple"
-                            setImageCircle="@{model.mCouple.twoUser.imageData}"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <androidx.appcompat.widget.AppCompatImageView
                             setTint="@{true}"
+                            setVisible="@{model.mCouple.twoUser}"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/background_circle"
                             android:padding="8dp"
-                            android:visibility="@{model.mCouple.twoUser.imageData!=null? View.GONE:View.VISIBLE}"
                             app:srcCompat="@drawable/ic_person_black_24dp" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image_two_couple"
+                            setImageCircle="@{model.mCouple.twoUser}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <TextView
@@ -134,16 +138,16 @@
                     app:layout_constraintTop_toBottomOf="@id/layout_hearder">
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        setImage="@{model.mCouple.background}"
+                        setImage="@{model.mCouple}"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         setTint="@{true}"
+                        setVisible="@{model.mCouple}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="@{model.mCouple.background==null? View.VISIBLE : View.GONE}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -165,10 +169,10 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:hint="@string/hint_love"
-                        android:paddingBottom="8dp"
                         android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
                         android:paddingTop="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="8dp"
                         android:text="@{model.mCouple.ment}"
                         android:textSize="14sp"
                         android:textStyle="bold" />

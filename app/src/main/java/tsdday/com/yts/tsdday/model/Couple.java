@@ -84,4 +84,12 @@ public class Couple extends RealmObject {
     public void setNumber(String number) {
         this.number = number;
     }
+
+    public String getBackgroundPath() {
+        return backgroundPath;
+    }
+
+    public void setBackgroundPath(String backgroundPath) {
+        this.backgroundPath = backgroundPath;
+    }
 }

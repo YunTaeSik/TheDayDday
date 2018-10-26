@@ -26,6 +26,8 @@ import tsdday.com.yts.tsdday.GlideApp;
 import tsdday.com.yts.tsdday.R;
 import tsdday.com.yts.tsdday.model.Album;
 import tsdday.com.yts.tsdday.model.AlbumItem;
+import tsdday.com.yts.tsdday.model.Couple;
+import tsdday.com.yts.tsdday.model.User;
 import tsdday.com.yts.tsdday.util.Keys;
 import tsdday.com.yts.tsdday.util.SharedPrefsUtils;
 
@@ -74,37 +76,6 @@ public class ImageBindingAdapter {
         view.setBackgroundColor(colorAccent);
     }
 
-    @BindingAdapter("setImage")
-    public static void setImage(final AppCompatImageView view, byte[] bytes) {
-        GlideApp.with(view.getContext()).load(bytes).override(view.getMeasuredWidth(), view.getMeasuredHeight()).thumbnail(0.1f).centerCrop().into(view);
-    }
-
-    @BindingAdapter({"setImage", "setPhotoView"})
-    public static void setImage(final ImageView view, final byte[] imageData, boolean isPhotoView) {
-        final Context context = view.getContext();
-        final int width = view.getMeasuredWidth();
-        final int height = view.getMeasuredHeight();
-        if (imageData != null) {
-            if (isPhotoView) {
-                GlideApp.with(context).load(imageData).fitCenter().thumbnail(0.1f).into(view);
-            } else {
-                GlideApp.with(context).load(imageData).override(width, height).centerCrop().thumbnail(0.1f).into(view);
-            }
-        }
-    }
-
-    @BindingAdapter("setImageCircle")
-    public static void setImageCircle(final AppCompatImageView view, byte[] bytes) {
-        Log.e("setImage", "setImage");
-        GlideApp.with(view.getContext()).load(bytes).thumbnail(0.1f).transform(new CircleCrop()).override(view.getMeasuredWidth(), view.getMeasuredHeight()).into(view);
-    }
-
-    @BindingAdapter("setImageCircle")
-    public static void setImageCircle(final AppCompatImageView view, Drawable drawable) {
-        Log.e("setImage", "setImage");
-        GlideApp.with(view.getContext()).load(drawable).thumbnail(0.1f).transform(new CircleCrop()).override(view.getMeasuredWidth(), view.getMeasuredHeight()).into(view);
-    }
-
     @BindingAdapter({"setLikeImage"})
     public static void setLikeImage(AppCompatImageView likeImage, boolean isLike) {
         if (isLike) {
@@ -114,6 +85,42 @@ public class ImageBindingAdapter {
         }
     }
 
+
+    @BindingAdapter("setImage")
+    public static void setImage(final AppCompatImageView view, byte[] bytes) {
+        GlideApp.with(view.getContext()).load(bytes).override(view.getMeasuredWidth(), view.getMeasuredHeight()).thumbnail(0.1f).centerCrop().into(view);
+    }
+
+    @BindingAdapter("setImage")
+    public static void setImage(final AppCompatImageView view, Couple couple) {
+        if (couple != null) {
+            String imageDataPath = couple.getBackgroundPath();
+            byte[] imageData = couple.getBackground();
+            if (imageDataPath != null && imageDataPath.length() > 0) {
+                GlideApp.with(view.getContext()).load(imageDataPath).override(view.getMeasuredWidth(), view.getMeasuredHeight()).thumbnail(0.1f).centerCrop().into(view);
+            } else if (imageData != null) {
+                GlideApp.with(view.getContext()).load(imageData).override(view.getMeasuredWidth(), view.getMeasuredHeight()).thumbnail(0.1f).centerCrop().into(view);
+            }
+        }
+    }
+
+    @BindingAdapter("setImageCircle")
+    public static void setImageCircle(final AppCompatImageView view, User user) {
+        if (user != null) {
+            String imageDataPath = user.getImageDataPath();
+            byte[] imageData = user.getImageData();
+            if (imageDataPath != null && imageDataPath.length() > 0) {
+                GlideApp.with(view.getContext()).load(imageDataPath).thumbnail(0.1f).transform(new CircleCrop()).override(view.getMeasuredWidth(), view.getMeasuredHeight()).into(view);
+            } else if (imageData != null) {
+                GlideApp.with(view.getContext()).load(imageData).thumbnail(0.1f).transform(new CircleCrop()).override(view.getMeasuredWidth(), view.getMeasuredHeight()).into(view);
+            }
+        }
+    }
+
+    @BindingAdapter("setImageCircle")
+    public static void setImageCircle(final AppCompatImageView view, Drawable drawable) {
+        GlideApp.with(view.getContext()).load(drawable).thumbnail(0.1f).transform(new CircleCrop()).override(view.getMeasuredWidth(), view.getMeasuredHeight()).into(view);
+    }
 
     @BindingAdapter({"setAlbumImage"})
     public static void setAlbumImage(final AppCompatImageView view, Album album) {

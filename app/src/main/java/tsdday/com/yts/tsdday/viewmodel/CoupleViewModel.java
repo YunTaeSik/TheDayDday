@@ -239,6 +239,28 @@ public class CoupleViewModel extends BaseViewModel implements CoupleInteractor {
         }
     }
 
+    public void setCropImageData(final String imageDataPath, final int requestCode) {
+        try {
+            mRealm.executeTransaction(new Realm.Transaction() {
+                @Override
+                public void execute(Realm realm) {
+                    if (requestCode == RequestCode.backgroundCrop) {
+                        mCouple.get().setBackgroundPath(imageDataPath);
+                    } else if (requestCode == RequestCode.oneCoupleCrop) {
+                        mCouple.get().getOneUser().setImageDataPath(imageDataPath);
+                    } else if (requestCode == RequestCode.twoCoupleCrop) {
+                        mCouple.get().getTwoUser().setImageDataPath(imageDataPath);
+                    }
+                    notifyChange();
+                }
+            });
+        } catch (Exception e) {
+            Crashlytics.logException(e);
+            e.printStackTrace();
+            ToastMake.make(mContext, R.string.error_image);
+        }
+    }
+
     @Override
     public void OnDateSelect(final String date, final int type) {
         mRealm.executeTransaction(new Realm.Transaction() {

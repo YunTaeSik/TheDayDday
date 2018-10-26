@@ -8,6 +8,7 @@ import android.content.Intent;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
 
@@ -22,6 +23,7 @@ import tsdday.com.yts.tsdday.R;
 import tsdday.com.yts.tsdday.model.Couple;
 import tsdday.com.yts.tsdday.ui.activity.IntentStartActivity;
 import tsdday.com.yts.tsdday.ui.activity.IntroActivity;
+import tsdday.com.yts.tsdday.viewmodel.bindingAdapter.ImageBindingAdapter;
 
 public class NotificationCreate {
     private static RemoteViews remoteViews;
@@ -94,12 +96,30 @@ public class NotificationCreate {
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
             notificationManager.notify(NOTICATION_ID, notification);
 
+            int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, context.getResources().getDisplayMetrics());
 
             NotificationTarget oneUserTarget = new NotificationTarget(context, R.id.image_one_couple, remoteViews, notification, NOTICATION_ID);
-            GlideApp.with(context).asBitmap().circleCrop().load(couple.getOneUser().getImageData()).into(oneUserTarget);
+            String oneUserImageDataPath = couple.getOneUser().getImageDataPath();
+            byte[] oneUserImageData = couple.getOneUser().getImageData();
+
+            if (oneUserImageDataPath != null && oneUserImageDataPath.length() > 0) {
+                GlideApp.with(context).asBitmap().circleCrop().load(oneUserImageDataPath).override(size).into(oneUserTarget);
+            } else if (oneUserImageData != null) {
+                GlideApp.with(context).asBitmap().circleCrop().load(oneUserImageData).override(size).into(oneUserTarget);
+            }
+
 
             NotificationTarget twoUserTarget = new NotificationTarget(context, R.id.image_two_couple, remoteViews, notification, NOTICATION_ID);
-            GlideApp.with(context).asBitmap().circleCrop().load(couple.getTwoUser().getImageData()).into(twoUserTarget);
+
+            String twoUserImageDataPath = couple.getTwoUser().getImageDataPath();
+            byte[] twoUserImageData = couple.getTwoUser().getImageData();
+
+            if (twoUserImageDataPath != null && twoUserImageDataPath.length() > 0) {
+                GlideApp.with(context).asBitmap().circleCrop().load(twoUserImageDataPath).override(size).into(twoUserTarget);
+            } else if (twoUserImageData != null) {
+                GlideApp.with(context).asBitmap().circleCrop().load(twoUserImageData).override(size).into(twoUserTarget);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
             Crashlytics.logException(e);
