@@ -18,13 +18,13 @@ public class SendBroadcast {
         context.sendBroadcast(send);
     }
 
-    public static void startLottieAnimationEmpty(Context context) {
-        Intent send = new Intent(Keys.SEND_LOTTIE_ANIMATION_EMPTY);
+    public static void startLottieAnimationAlbumEmpty(Context context) {
+        Intent send = new Intent(Keys.SEND_LOTTIE_ANIMATION_ALBUM_EMPTY);
         context.sendBroadcast(send);
     }
 
-    public static void stopLottieAnimationEmpty(Context context) {
-        Intent send = new Intent(Keys.SEND_LOTTIE_ANIMATION_EMPTY_STOP);
+    public static void stopLottieAnimationAlbumEmpty(Context context) {
+        Intent send = new Intent(Keys.SEND_LOTTIE_ANIMATION_ALBUM_EMPTY_STOP);
         context.sendBroadcast(send);
     }
 

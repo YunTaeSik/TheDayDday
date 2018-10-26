@@ -134,9 +134,9 @@ public class ImageBindingAdapter {
             String imageDataPath = albumItem.getImageDataPath();
             byte[] imageData = albumItem.getImageData();
             if (imageDataPath != null && imageDataPath.length() > 0) {
-                GlideApp.with(context).load(imageDataPath).fitCenter().thumbnail(0.1f).into(view);
+                GlideApp.with(context).load(imageDataPath).fitCenter().into(view);
             } else if (imageData != null) {
-                GlideApp.with(context).load(imageData).fitCenter().thumbnail(0.1f).into(view);
+                GlideApp.with(context).load(imageData).fitCenter().into(view);
             }
         }
     }

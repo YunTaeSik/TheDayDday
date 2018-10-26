@@ -33,7 +33,7 @@ public class MyApplication extends MultiDexApplication {
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
                 .name("tsdday.realm")
-                .schemaVersion(3)
+                .schemaVersion(4)
                 .migration(new Migration())
                 .build();
         Realm.setDefaultConfiguration(config);

@@ -168,7 +168,7 @@ public class BaseActivity extends AppCompatActivity implements PurchasesUpdatedL
                 } else if (action.equals(Keys.SEND_HIDE_KEYBOARD)) {
                     hideKeyboard();
                 } else if (action.equals(Keys.SEND_START_ALBUM)) {
-                    SendBroadcast.stopLottieAnimationEmpty(getApplicationContext());
+                    SendBroadcast.stopLottieAnimationAlbumEmpty(getApplicationContext());
 
                     String date = intent.getStringExtra(Keys.DATE);
                     startFragmentDialog(AlbumDialog.newInstance(date), android.R.transition.slide_bottom);

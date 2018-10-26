@@ -22,9 +22,7 @@ import tsdday.com.yts.tsdday.interactor.Interactor;
 import tsdday.com.yts.tsdday.model.Anniversary;
 import tsdday.com.yts.tsdday.viewmodel.CoupleViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class HomeFragment extends Fragment implements HomeInteractor {
     private HomeBinding binding;
     private CoupleViewModel model;
@@ -66,7 +64,6 @@ public class HomeFragment extends Fragment implements HomeInteractor {
         if (model != null) {
             model.findCouple(false);
         }
-      //  binding.animationView.playAnimation();
     }
 
     public void showAddAnniversary() {

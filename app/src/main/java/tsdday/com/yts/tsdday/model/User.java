@@ -7,6 +7,7 @@ public class User extends RealmObject {
     public String name;
     public String birth;
     public byte[] imageData;
+    public String imageDataPath;
 
     public String getName() {
         return name;

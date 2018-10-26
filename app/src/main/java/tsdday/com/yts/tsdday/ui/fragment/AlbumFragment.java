@@ -108,11 +108,11 @@ public class AlbumFragment extends Fragment {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action != null) {
-                if (action.equals(Keys.SEND_LOTTIE_ANIMATION_EMPTY)) {
+                if (action.equals(Keys.SEND_LOTTIE_ANIMATION_ALBUM_EMPTY)) {
                     if (model != null) {
                         model.startEmptyAnimation(binding.animationView);
                     }
-                } else if (action.equals(Keys.SEND_LOTTIE_ANIMATION_EMPTY_STOP)) {
+                } else if (action.equals(Keys.SEND_LOTTIE_ANIMATION_ALBUM_EMPTY_STOP)) {
                     if (model != null) {
                         model.stopEmptyAnimation(binding.animationView);
                     }
@@ -148,8 +148,8 @@ public class AlbumFragment extends Fragment {
 
     private IntentFilter getIntentFilter() {
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(Keys.SEND_LOTTIE_ANIMATION_EMPTY);
-        intentFilter.addAction(Keys.SEND_LOTTIE_ANIMATION_EMPTY_STOP);
+        intentFilter.addAction(Keys.SEND_LOTTIE_ANIMATION_ALBUM_EMPTY);
+        intentFilter.addAction(Keys.SEND_LOTTIE_ANIMATION_ALBUM_EMPTY_STOP);
         intentFilter.addAction(Keys.SEND_EDIT_ALBUM);
         intentFilter.addAction(Keys.SEND_LIKE);
         intentFilter.addAction(Keys.SEND_DELETE);

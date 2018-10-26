@@ -36,8 +36,9 @@ public class Keys {
     public final static String IMAGE_URLS = "imageUrls";
 
     /*브로드캐스트 리시버*/
-    public final static String SEND_LOTTIE_ANIMATION_EMPTY = "sendLottieAnimationEmpty";
+    public final static String SEND_LOTTIE_ANIMATION_ALBUM_EMPTY = "sendLottieAnimationAlbumEmpty";
     public final static String SEND_LOTTIE_ANIMATION_EMPTY_STOP = "sendLottieAnimationEmptyStop";
+    public final static String SEND_LOTTIE_ANIMATION_ALBUM_EMPTY_STOP = "sendLottieAnimationAlbumEmptyStop";
 
     public final static String SEND_CLOSE = "sendClose";
     public final static String SEND_HIDE_KEYBOARD = "sendHideKeyBoard";

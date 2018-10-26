@@ -16,6 +16,7 @@ public class Couple extends RealmObject {
     public User oneUser;
     public User twoUser;
     public byte[] background;
+    public String backgroundPath;
     public String ment;
     public Boolean isStartOne;
     public String number;

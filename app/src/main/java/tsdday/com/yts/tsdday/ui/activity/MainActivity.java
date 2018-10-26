@@ -163,7 +163,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             return;
         }
         if (tag.equals(tags[0])) {
-            SendBroadcast.startLottieAnimationEmpty(this);
+            SendBroadcast.startLottieAnimationAlbumEmpty(this);
         } else if (tag.equals(tags[1])) {
             mHomeFragment.startAnimation();
         }
