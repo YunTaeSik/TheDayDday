@@ -36,10 +36,11 @@ public class Convert {
             public void subscribe(ObservableEmitter<String> emitter) throws Exception {
                 try {
                     for (String url : imageUrls) {
-
                         Bitmap bitmap = GlideApp.with(context).asBitmap().load(url).submit().get();
-                        File file = CreateBitmap.create(context,bitmap);
-                        emitter.onNext(file.getPath());
+                        if (bitmap != null) {
+                            File file = CreateBitmap.create(context, bitmap);
+                            emitter.onNext(file.getPath());
+                        }
                     }
                     emitter.onComplete();
                 } catch (Exception e) {

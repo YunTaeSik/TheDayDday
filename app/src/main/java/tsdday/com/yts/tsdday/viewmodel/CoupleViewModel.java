@@ -177,19 +177,23 @@ public class CoupleViewModel extends BaseViewModel implements CoupleInteractor {
     }
 
     public void showCreateCouple() {
-        if (mContext instanceof MainActivity) {
-            MainActivity activity = (MainActivity) mContext;
-            FragmentManager fragmentManager = activity.getSupportFragmentManager();
-            coupleCreateDialog = CoupleCreateDialog.newInstance();
-            coupleCreateDialog.setModel(this);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                coupleCreateDialog.setEnterTransition(TransitionInflater.from(mContext).inflateTransition(android.R.transition.slide_bottom));
+        try {
+            if (mContext instanceof MainActivity) {
+                MainActivity activity = (MainActivity) mContext;
+                FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                coupleCreateDialog = CoupleCreateDialog.newInstance();
+                coupleCreateDialog.setModel(this);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    coupleCreateDialog.setEnterTransition(TransitionInflater.from(mContext).inflateTransition(android.R.transition.slide_bottom));
+                }
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.setReorderingAllowed(true)
+                        .addToBackStack(null)
+                        .replace(android.R.id.content, coupleCreateDialog)
+                        .commit();
             }
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.setReorderingAllowed(true)
-                    .addToBackStack(null)
-                    .replace(android.R.id.content, coupleCreateDialog)
-                    .commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

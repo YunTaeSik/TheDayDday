@@ -99,17 +99,20 @@ public class DateSelectDialog extends DialogFragment implements View.OnClickList
 
     @Override
     public void dismiss() {
-
-        if (mCoupleInteractor != null) {
-            mCoupleInteractor = null;
+        try {
+            if (mCoupleInteractor != null) {
+                mCoupleInteractor = null;
+            }
+            if (mHomeInteractor != null) {
+                mHomeInteractor = null;
+            }
+            if (onDateSelectListener != null) {
+                onDateSelectListener = null;
+            }
+            super.dismiss();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        if (mHomeInteractor != null) {
-            mHomeInteractor = null;
-        }
-        if (onDateSelectListener != null) {
-            onDateSelectListener = null;
-        }
-        super.dismiss();
     }
 
 
