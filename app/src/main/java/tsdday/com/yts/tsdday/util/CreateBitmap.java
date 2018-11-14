@@ -19,6 +19,8 @@ public class CreateBitmap {
                 file.mkdirs();
             }
 
+
+
             File image = new File(file, System.currentTimeMillis() + ".png");
 
             FileOutputStream fileOutputStream = new FileOutputStream(image);

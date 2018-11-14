@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="test_device">"1AAF5C26F373E0C2E84FCD5A8FB409BF"</string>
+    <string name="ad_app_id">"ca-app-pub-9788292917303375~7143049504"</string>
+    <string name="banner_ad_id">"ca-app-pub-9788292917303375/7502142157"</string>
+    <string name="screen_ad_id">"ca-app-pub-9788292917303375/3179753762"</string>
+    <string name="reward_ad_id">"ca-app-pub-9788292917303375/3590817309"</string>
+
+    <string name="notification_channel_id">"notification_ts_channel_id"</string>
+    <string name="notification_channel_name">"notification_ts_channel_name"</string>
+
+    <string name="action_notification_click_phone">"ACTION_NOTIFICATION_CLICK_PHONE"</string>
+
+
+    <string name="invitation_deep_link">"https://sn3d4.app.goo.gl/TsDday"</string>
+
+    <string name="app_name">"THE Day DDay"</string>
+    <string name="contact_email">"sky877kr@gmail.com"</string>
+    <string name="title_home">"ホーム"</string>
+    <string name="title_setting">"設定"</string>
+    <string name="title_album">"アルバム"</string>
+    <string name="title_dashboard">"ダッシュボード"</string>
+    <string name="title_notifications">"アラーム"</string>
+
+    <string name="list">"List"</string>
+    <string name="grid">"Grid"</string>
+    <string name="advertising">"広告"</string>
+    <string name="move">"移動"</string>
+    <string name="album">"アルバム"</string>
+    <string name="basics">"基本"</string>
+    <string name="couple">"カップル"</string>
+    <string name="background">"背景"</string>
+    <string name="start">"開始"</string>
+    <string name="save">"保存"</string>
+    <string name="cancel">"キャンセル"</string>
+    <string name="close">"閉じる"</string>
+    <string name="delete">"削除"</string>
+    <string name="date">"日付"</string>
+    <string name="invite">"招待"</string>
+    <string name="title">"タイトル"</string>
+    <string name="lifetime">"生涯巻"</string>
+    <string name="name">"名前"</string>
+    <string name="birth">"誕生日"</string>
+    <string name="day">"日"</string>
+    <string name="anniversary">" 周年"</string>
+    <string name="anniversary_two">"記念日"</string>
+    <string name="start_date">"開始日"</string>
+    <string name="number">"番号"</string>
+    <string name="repeat">"繰り返し"</string>
+    <string name="content">"内容"</string>
+
+    <string name="day_ticket">"一日利用券"</string>
+    <string name="watch_videos">"動画視聴"</string>
+    <string name="repeat_every_year">"毎年繰り返さ"</string>
+    <string name="repeat_monthly">"毎月繰り返し"</string>
+    <string name="couple_setting">"カップル設定"</string>
+    <string name="add_album">"アルバム追加"</string>
+    <string name="add_anniversary">"記念日の追加"</string>
+    <string name="edit_image">"画像編集"</string>
+    <string name="delete_album">"アルバムを削除"</string>
+    <string name="delete_album_message">"アルバムを削除しますか？"</string>
+    <string name="delete_album_image">"画像を削除しますか？"</string>
+    <string name="delete_anniversary">"記念日を削除しますか？"</string>
+    <string name="advertising_remove">"広告を削除"</string>
+    <string name="add_review">"レビューを記入する"</string>
+    <string name="view_format">"ビュー形式"</string>
+    <string name="top_bar">"上部バー"</string>
+    <string name="top_bar_style">"上部バーのスタイル"</string>
+
+    <string name="one_day_start">"0日から開始し"</string>
+
+
+    <string name="days_ago">"日かけて"</string>
+    <string name="days_remaining">"日残り"</string>
+
+
+    <string name="favorites_list">"お気に入りリスト"</string>
+    <string name="version_information">"バージョン情報"</string>
+    <string name="service_center">"お客様センター"</string>
+    <string name="contact_us">"お問い合わせ"</string>
+
+    <string name="fix_the_top_bar">"上部バーの固定"</string>
+    <string name="enable_tip">"ヒントを有効に"</string>
+
+    <!--empty-->
+    <string name="empty_title">"開始する"</string>
+    <string name="empty_couple_content">"カップルを登録してください。\n きれいな記念日が登録されます。"</string>
+    <string name="empty_album_content">"新しいアルバムを登録してください。\n きれいなカードが登録されます。"</string>
+    <string name="empty_album_like">"良いを押しアルバムがありません。"</string>
+
+    <!--hint-->
+    <string name="hint_content">"内容を入力してください。"</string>
+    <string name="hint_title">"タイトルを入力してください。"</string>
+    <string name="hint_love">"私たちの愛であることを ❤"</string>
+    <string name="hint_start_date">"開始日を入力してください。"</string>
+    <string name="hint_date">"日付を選択してください。"</string>
+    <string name="hint_number">"相手の番号を入力してください。"</string>
+
+    <!--tip-->
+    <string name="tip_image_multiple">"Tip : 長押しすると、画像、複数のを選択することができます。"</string>
+    <string name="tip_album_item">"Tip : 長押しするとアイテムを移動させることができます。\n 右から左に引くとアイテムを消去することができます。"</string>
+    <string name="tip_anniversary">"Tip : 長押しするとアイテムを消去することができます。"</string>
+    <string name="tip_album_list">"Tip : アルバムボタンをクリックする全リスト、お気に入りリストに切り替えます。"</string>
+
+    <!--error-->
+    <string name="error_permission">"権限を許可する必要が使用することができます。"</string>
+    <string name="error_image">"画像のアップロードエラーです。"</string>
+    <string name="error_title">"タイトルを入力してください。"</string>
+    <string name="error_date">"日付を選択してください。"</string>
+    <string name="error_email">"インストールされて電子メールプログラムがありません。"</string>
+    <string name="error_default">"しばらくしてご利用ください。同じ症状が繰り返されると、開発者にお問い合わせください。"</string>
+
+
+    <!--dday-->
+    <string name="valentine_day">バレンタインデー</string>
+    <string name="white_day">"ホワイトデー"</string>
+    <string name="rose_day">"ローズデイ"</string>
+    <string name="kiss_day">"キスの日"</string>
+    <string name="pepero_day">"ペペロデー"</string>
+    <string name="hug_day">ハグの日</string>
+    <string name="christmas">クリスマス</string>
+
+    <string name="shared_title">招待</string>
+    <string name="shared_message">知人にアプリを招待！ :)</string>
+    <string name="shared_call_to_action_text">インストールする</string>
+
+</resources>

@@ -67,7 +67,6 @@ public class SettingViewModel extends BaseViewModel {
         Intent like = new Intent(mContext, AlbumLikeListActivity.class);
         mContext.startActivity(like);
     }
-
     public void onClickTopBarStyle(View view) {
         Intent topbar = new Intent(mContext, TopBarStyleSelectActivity.class);
         view.getContext().startActivity(topbar);
