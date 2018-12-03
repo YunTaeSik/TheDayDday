@@ -66,7 +66,11 @@ public class ShowIntent {
                 .setDeepLink(Uri.parse(context.getString(R.string.invitation_deep_link)))
                 .setCallToActionText(context.getString(R.string.shared_call_to_action_text))
                 .build();
-        ((Activity) context).startActivityForResult(intent, RequestCode.invite);
+        try {
+            ((Activity) context).startActivityForResult(intent, RequestCode.invite);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void reviews(Context context) {

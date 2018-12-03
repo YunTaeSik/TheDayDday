@@ -161,23 +161,29 @@ public class BaseActivity extends AppCompatActivity implements PurchasesUpdatedL
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (action != null) {
-                if (action.equals(Keys.SEND_CLOSE)) {
-                    onBackPressed();
-                } else if (action.equals(Keys.SEND_HIDE_KEYBOARD)) {
-                    hideKeyboard();
-                } else if (action.equals(Keys.SEND_START_ALBUM)) {
-                    SendBroadcast.stopLottieAnimationAlbumEmpty(getApplicationContext());
+            try {
+                String action = intent.getAction();
+                if (action != null) {
+                    if (action.equals(Keys.SEND_CLOSE)) {
+                        onBackPressed();
+                    } else if (action.equals(Keys.SEND_HIDE_KEYBOARD)) {
+                        hideKeyboard();
+                    } else if (action.equals(Keys.SEND_START_ALBUM)) {
+                        SendBroadcast.stopLottieAnimationAlbumEmpty(getApplicationContext());
 
-                    String date = intent.getStringExtra(Keys.DATE);
-                    startFragmentDialog(AlbumDialog.newInstance(date), android.R.transition.slide_bottom);
-                } else if (action.equals(Keys.SEND_START_DATE_DIALOG)) {
-                    String date = intent.getStringExtra(Keys.DATE);
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    DateSelectDialog dialog = DateSelectDialog.newInstance(date);
-                    dialog.show(fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_ENTER_MASK), null);
+                        String date = intent.getStringExtra(Keys.DATE);
+                        startFragmentDialog(AlbumDialog.newInstance(date), android.R.transition.slide_bottom);
+                    } else if (action.equals(Keys.SEND_START_DATE_DIALOG)) {
+                        String date = intent.getStringExtra(Keys.DATE);
+                        FragmentManager fragmentManager = getSupportFragmentManager();
+                        if (fragmentManager != null) {
+                            DateSelectDialog dialog = DateSelectDialog.newInstance(date);
+                            dialog.show(fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_ENTER_MASK), null);
+                        }
+                    }
                 }
+            } catch (Exception e) {
+                Crashlytics.logException(e);
             }
         }
     };

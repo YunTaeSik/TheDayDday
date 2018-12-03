@@ -17,8 +17,8 @@ android {
         applicationId "tsdday.com.yts.tsdday"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 39
-        versionName "1.6.1"
+        versionCode 40
+        versionName "1.6.2"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -65,9 +65,9 @@ dependencies {
     implementation 'com.airbnb.android:lottie:2.8.0'
     implementation 'gun0912.ted:tedpermission:2.2.0'
     implementation 'androidx.multidex:multidex:2.0.0'
-    implementation 'com.google.firebase:firebase-core:16.0.4'
-    implementation 'com.google.firebase:firebase-invites:16.0.4'
-    implementation 'com.google.firebase:firebase-ads:17.1.0'
+    implementation 'com.google.firebase:firebase-core:16.0.5'
+    implementation 'com.google.firebase:firebase-invites:16.0.5'
+    implementation 'com.google.firebase:firebase-ads:17.1.1'
     implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
     implementation 'com.github.chrisbanes:PhotoView:2.1.4'
     implementation 'com.google.code.gson:gson:2.8.5'

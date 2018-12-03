@@ -103,9 +103,9 @@ public class NotificationCreate {
             byte[] oneUserImageData = couple.getOneUser().getImageData();
 
             if (oneUserImageDataPath != null && oneUserImageDataPath.length() > 0) {
-                GlideApp.with(context).asBitmap().circleCrop().load(oneUserImageDataPath).override(size).into(oneUserTarget);
+                GlideApp.with(context.getApplicationContext()).asBitmap().circleCrop().load(oneUserImageDataPath).override(size).into(oneUserTarget);
             } else if (oneUserImageData != null) {
-                GlideApp.with(context).asBitmap().circleCrop().load(oneUserImageData).override(size).into(oneUserTarget);
+                GlideApp.with(context.getApplicationContext()).asBitmap().circleCrop().load(oneUserImageData).override(size).into(oneUserTarget);
             }
 
 
@@ -115,9 +115,9 @@ public class NotificationCreate {
             byte[] twoUserImageData = couple.getTwoUser().getImageData();
 
             if (twoUserImageDataPath != null && twoUserImageDataPath.length() > 0) {
-                GlideApp.with(context).asBitmap().circleCrop().load(twoUserImageDataPath).override(size).into(twoUserTarget);
+                GlideApp.with(context.getApplicationContext()).asBitmap().circleCrop().load(twoUserImageDataPath).override(size).into(twoUserTarget);
             } else if (twoUserImageData != null) {
-                GlideApp.with(context).asBitmap().circleCrop().load(twoUserImageData).override(size).into(twoUserTarget);
+                GlideApp.with(context.getApplicationContext()).asBitmap().circleCrop().load(twoUserImageData).override(size).into(twoUserTarget);
             }
 
         } catch (Exception e) {
