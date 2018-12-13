@@ -14,11 +14,10 @@ public class CreateBitmap {
         try {
             ContextWrapper contextWrapper = new ContextWrapper(context);
 
-            File file = contextWrapper.getCacheDir(); // 프로바이더의 이름이 같아야함 provider.xml
+            File file = contextWrapper.getFilesDir(); // 프로바이더의 이름이 같아야함 provider.xml
             if (!file.exists()) {
                 file.mkdirs();
             }
-
 
 
             File image = new File(file, System.currentTimeMillis() + ".png");

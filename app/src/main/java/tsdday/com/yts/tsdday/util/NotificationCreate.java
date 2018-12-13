@@ -90,7 +90,6 @@ public class NotificationCreate {
                     .setCategory(NotificationCompat.CATEGORY_STATUS)
                     .build();
 
-            //     notification.contentView = remoteViews;
             notification.flags = Notification.FLAG_NO_CLEAR;
 
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
@@ -120,6 +119,7 @@ public class NotificationCreate {
                 GlideApp.with(context.getApplicationContext()).asBitmap().circleCrop().load(twoUserImageData).override(size).into(twoUserTarget);
             }
 
+            realm.close();
         } catch (Exception e) {
             e.printStackTrace();
             Crashlytics.logException(e);

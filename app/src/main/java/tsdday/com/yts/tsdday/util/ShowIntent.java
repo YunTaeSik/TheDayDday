@@ -41,7 +41,7 @@ public class ShowIntent {
         options.setToolbarTitle(context.getString(R.string.edit_image));
 
         String fileName = String.valueOf(System.currentTimeMillis()) + ".png";
-        UCrop.of(data.getData(), Uri.fromFile(new File(context.getCacheDir(), fileName)))
+        UCrop.of(data.getData(), Uri.fromFile(new File(context.getFilesDir(), fileName)))
                 .withOptions(options)
                 .start(context, requestCode);
     }

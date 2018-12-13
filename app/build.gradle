@@ -17,8 +17,8 @@ android {
         applicationId "tsdday.com.yts.tsdday"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 40
-        versionName "1.6.2"
+        versionCode 42
+        versionName "1.6.4"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -60,19 +60,19 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.14'
     implementation 'com.github.bumptech.glide:glide:4.8.0'
-    annotationProcessor 'androidx.annotation:annotation:1.0.0'
+    annotationProcessor 'androidx.annotation:annotation:1.0.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     implementation 'com.airbnb.android:lottie:2.8.0'
     implementation 'gun0912.ted:tedpermission:2.2.0'
     implementation 'androidx.multidex:multidex:2.0.0'
-    implementation 'com.google.firebase:firebase-core:16.0.5'
-    implementation 'com.google.firebase:firebase-invites:16.0.5'
-    implementation 'com.google.firebase:firebase-ads:17.1.1'
+    implementation 'com.google.firebase:firebase-core:16.0.6'
+    implementation 'com.google.firebase:firebase-invites:16.0.6'
+    implementation 'com.google.firebase:firebase-ads:17.1.2'
     implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
     implementation 'com.github.chrisbanes:PhotoView:2.1.4'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.github.yalantis:ucrop:2.2.2'
-    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.6'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.7'
     implementation 'com.android.billingclient:billing:1.1'
 
     testImplementation 'junit:junit:4.12'
