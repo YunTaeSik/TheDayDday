@@ -1,8 +1,11 @@
 package tsdday.com.yts.tsdday.ui.activity;
 
 import android.content.Intent;
+
 import androidx.databinding.DataBindingUtil;
+
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.MobileAds;
@@ -46,6 +49,7 @@ public class IntroActivity extends AppCompatActivity {
                     public void accept(Long aLong) throws Exception {
                         startActivity(new Intent(IntroActivity.this, MainActivity.class));
                         finish();
+                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     }
                 }));
     }

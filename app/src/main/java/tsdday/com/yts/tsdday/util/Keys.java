@@ -17,6 +17,7 @@ public class Keys {
 
     public final static String isNotify = "isNotify";
     public final static String isTip = "isTip";
+    public final static String isSpecialAnniversaryList = "isSpecialAnniversaryList";
 
     public final static String isPremium = "isPremium";
     public final static String isReward = "isReward";

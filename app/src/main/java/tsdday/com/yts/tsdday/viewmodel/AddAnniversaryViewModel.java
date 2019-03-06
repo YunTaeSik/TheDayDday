@@ -44,32 +44,6 @@ public class AddAnniversaryViewModel extends BaseViewModel implements OnDateSele
         super(context);
         mCouple = couple;
         findAddedAnniversary();
-        anniversaries.addOnListChangedCallback(new ObservableList.OnListChangedCallback<ObservableList<Anniversary>>() {
-            @Override
-            public void onChanged(ObservableList<Anniversary> sender) {
-                notifyChange();
-            }
-
-            @Override
-            public void onItemRangeChanged(ObservableList<Anniversary> sender, int positionStart, int itemCount) {
-                notifyChange();
-            }
-
-            @Override
-            public void onItemRangeInserted(ObservableList<Anniversary> sender, int positionStart, int itemCount) {
-                notifyChange();
-            }
-
-            @Override
-            public void onItemRangeMoved(ObservableList<Anniversary> sender, int fromPosition, int toPosition, int itemCount) {
-                notifyChange();
-            }
-
-            @Override
-            public void onItemRangeRemoved(ObservableList<Anniversary> sender, int positionStart, int itemCount) {
-                notifyChange();
-            }
-        });
     }
 
     public void initData() {

@@ -37,7 +37,7 @@ public class SetAdapterBindingAdapter {
             recyclerView.getAdapter().notifyDataSetChanged();
         } else {
             Log.e("setAlbumAdapter", "create()");
-            int spanCount = SharedPrefsUtils.getBooleanPreference(context, Keys.VIEW_FORMAT_IS_GRID, false) ? 1 : 2;
+            int spanCount = SharedPrefsUtils.getBooleanPreference(context, Keys.VIEW_FORMAT_IS_GRID, true) ? 2 : 1;
             AlbumAdapter mAlbumAdapter = new AlbumAdapter(context, albumsList);
             mAlbumAdapter.setHasStableIds(true);
             recyclerView.setLayoutManager(new StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL));

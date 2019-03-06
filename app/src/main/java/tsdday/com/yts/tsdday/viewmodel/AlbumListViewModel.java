@@ -15,7 +15,9 @@ import io.reactivex.functions.Consumer;
 import tsdday.com.yts.tsdday.model.Album;
 import tsdday.com.yts.tsdday.model.RealmService;
 import tsdday.com.yts.tsdday.util.DateFormat;
+import tsdday.com.yts.tsdday.util.Keys;
 import tsdday.com.yts.tsdday.util.SendBroadcast;
+import tsdday.com.yts.tsdday.util.SharedPrefsUtils;
 
 public class AlbumListViewModel extends BaseViewModel {
 
@@ -52,10 +54,12 @@ public class AlbumListViewModel extends BaseViewModel {
     }
 
     public void listMode(View view) {
+        SharedPrefsUtils.setBooleanPreference(view.getContext(), Keys.VIEW_FORMAT_IS_GRID, false);
         SendBroadcast.albumList(view.getContext());
     }
 
     public void gridMode(View view) {
+        SharedPrefsUtils.setBooleanPreference(view.getContext(), Keys.VIEW_FORMAT_IS_GRID, true);
         SendBroadcast.albumGrid(view.getContext());
     }
 

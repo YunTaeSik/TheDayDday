@@ -100,6 +100,7 @@ public class DateFormat {
         }
         return Math.abs(dday) + context.getString(R.string.days_remaining);
     }
+
     public static String getDdayStringFromCouple(Context context, Couple couple) {
         Calendar current = Calendar.getInstance();
         int date = couple.getStartOne() ? current.get(Calendar.DATE) : current.get(Calendar.DATE) + 1;
@@ -161,28 +162,28 @@ public class DateFormat {
             twoUserBirth.set(Calendar.YEAR, current.get(Calendar.YEAR));
             anniversaryArrayList.add(getAnniversaryFromCalender(context, twoUserBirth, couple.getTwoUser().getName() + " " + context.getString(R.string.birth), true));
         }
+        if (SharedPrefsUtils.getBooleanPreference(context, Keys.isSpecialAnniversaryList, true)) {
+            GregorianCalendar valentine_day = new GregorianCalendar(current.get(Calendar.YEAR), 1, 14, 0, 0, 0);
+            anniversaryArrayList.add(getAnniversaryFromCalender(context, valentine_day, context.getString(R.string.valentine_day), true));
 
-        GregorianCalendar valentine_day = new GregorianCalendar(current.get(Calendar.YEAR), 1, 14, 0, 0, 0);
-        anniversaryArrayList.add(getAnniversaryFromCalender(context, valentine_day, context.getString(R.string.valentine_day), true));
+            GregorianCalendar white_day = new GregorianCalendar(current.get(Calendar.YEAR), 2, 14, 0, 0, 0);
+            anniversaryArrayList.add(getAnniversaryFromCalender(context, white_day, context.getString(R.string.white_day), true));
 
-        GregorianCalendar white_day = new GregorianCalendar(current.get(Calendar.YEAR), 2, 14, 0, 0, 0);
-        anniversaryArrayList.add(getAnniversaryFromCalender(context, white_day, context.getString(R.string.white_day), true));
+            GregorianCalendar rose_day = new GregorianCalendar(current.get(Calendar.YEAR), 4, 14, 0, 0, 0);
+            anniversaryArrayList.add(getAnniversaryFromCalender(context, rose_day, context.getString(R.string.rose_day), true));
 
-        GregorianCalendar rose_day = new GregorianCalendar(current.get(Calendar.YEAR), 4, 14, 0, 0, 0);
-        anniversaryArrayList.add(getAnniversaryFromCalender(context, rose_day, context.getString(R.string.rose_day), true));
+            GregorianCalendar kiss_day = new GregorianCalendar(current.get(Calendar.YEAR), 5, 14, 0, 0, 0);
+            anniversaryArrayList.add(getAnniversaryFromCalender(context, kiss_day, context.getString(R.string.kiss_day), true));
 
-        GregorianCalendar kiss_day = new GregorianCalendar(current.get(Calendar.YEAR), 5, 14, 0, 0, 0);
-        anniversaryArrayList.add(getAnniversaryFromCalender(context, kiss_day, context.getString(R.string.kiss_day), true));
+            GregorianCalendar pepero_day = new GregorianCalendar(current.get(Calendar.YEAR), 10, 11, 0, 0, 0);
+            anniversaryArrayList.add(getAnniversaryFromCalender(context, pepero_day, context.getString(R.string.pepero_day), true));
 
-        GregorianCalendar pepero_day = new GregorianCalendar(current.get(Calendar.YEAR), 10, 11, 0, 0, 0);
-        anniversaryArrayList.add(getAnniversaryFromCalender(context, pepero_day, context.getString(R.string.pepero_day), true));
+            GregorianCalendar hug_day = new GregorianCalendar(current.get(Calendar.YEAR), 11, 14, 0, 0, 0);
+            anniversaryArrayList.add(getAnniversaryFromCalender(context, hug_day, context.getString(R.string.hug_day), true));
 
-        GregorianCalendar hug_day = new GregorianCalendar(current.get(Calendar.YEAR), 11, 14, 0, 0, 0);
-        anniversaryArrayList.add(getAnniversaryFromCalender(context, hug_day, context.getString(R.string.hug_day), true));
-
-        GregorianCalendar christmas = new GregorianCalendar(current.get(Calendar.YEAR), 11, 25, 0, 0, 0);
-        anniversaryArrayList.add(getAnniversaryFromCalender(context, christmas, context.getString(R.string.christmas), true));
-
+            GregorianCalendar christmas = new GregorianCalendar(current.get(Calendar.YEAR), 11, 25, 0, 0, 0);
+            anniversaryArrayList.add(getAnniversaryFromCalender(context, christmas, context.getString(R.string.christmas), true));
+        }
     }
 
     public static void setAnniversaryList(Context context, List<Anniversary> anniversaryArrayList, Couple couple) {
@@ -197,6 +198,11 @@ public class DateFormat {
     }
 
 
+    /**
+     * 기념일 출력
+     *
+     * @return
+     */
     public static List<Anniversary> getAnniversaryListFromCouple(Context context, Couple couple) {
         List<Anniversary> anniversaryArrayList = new ArrayList<>();
         if (couple != null) {
@@ -204,6 +210,7 @@ public class DateFormat {
             GregorianCalendar curreuntCalendar = new GregorianCalendar(current.get(Calendar.YEAR), current.get(Calendar.MONTH), current.get(Calendar.DATE), 0, 0, 0);
 
             setSpecialAnniversaryList(context, anniversaryArrayList, curreuntCalendar, couple);
+
             setAnniversaryList(context, anniversaryArrayList, couple);
         }
         return anniversaryArrayList;

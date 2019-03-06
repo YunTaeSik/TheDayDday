@@ -123,5 +123,6 @@
     <string name="shared_title">招待</string>
     <string name="shared_message">知人にアプリを招待！ :)</string>
     <string name="shared_call_to_action_text">インストールする</string>
+    <string name="activate_special_anniversary_list">特別記念日のリスト活性化</string>
 
 </resources>

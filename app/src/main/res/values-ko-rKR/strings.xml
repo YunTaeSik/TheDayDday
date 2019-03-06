@@ -123,5 +123,6 @@
     <string name="shared_title">초대하기</string>
     <string name="shared_message">지인에게 어플을 초대합니다! :)</string>
     <string name="shared_call_to_action_text">설치하기</string>
+    <string name="activate_special_anniversary_list">특별 기념일 리스트 활성화</string>
 
 </resources>

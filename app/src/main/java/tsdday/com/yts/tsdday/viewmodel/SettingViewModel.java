@@ -27,6 +27,7 @@ public class SettingViewModel extends BaseViewModel {
     public ObservableBoolean isTip = new ObservableBoolean(true);
     public ObservableBoolean isPremium = new ObservableBoolean(false);
     public ObservableBoolean isViewFormat = new ObservableBoolean(false);
+    public ObservableBoolean isSpecialAnniversaryList = new ObservableBoolean(false);
 
     public SettingViewModel(Context context) {
         super(context);
@@ -41,6 +42,7 @@ public class SettingViewModel extends BaseViewModel {
         }
         isNotify.set(SharedPrefsUtils.getBooleanPreference(mContext, Keys.isNotify, false));
         isTip.set(SharedPrefsUtils.getBooleanPreference(mContext, Keys.isTip, true));
+        isSpecialAnniversaryList.set(SharedPrefsUtils.getBooleanPreference(mContext, Keys.isSpecialAnniversaryList, true));
 
         boolean isPremium = SharedPrefsUtils.getBooleanPreference(mContext, Keys.isPremium, false);
         boolean isRewardTime = System.currentTimeMillis() - SharedPrefsUtils.getLongPreference(mContext, Keys.isReward, 0) <= 86400000;
@@ -63,10 +65,17 @@ public class SettingViewModel extends BaseViewModel {
         notifyChange();
     }
 
+    public void onClickSpecialAnniversaryList() {
+        isSpecialAnniversaryList.set(!isSpecialAnniversaryList.get());
+        SharedPrefsUtils.setBooleanPreference(mContext, Keys.isSpecialAnniversaryList, isSpecialAnniversaryList.get());
+        notifyChange();
+    }
+
     public void onClickAlbumLikeList() {
         Intent like = new Intent(mContext, AlbumLikeListActivity.class);
         mContext.startActivity(like);
     }
+
     public void onClickTopBarStyle(View view) {
         Intent topbar = new Intent(mContext, TopBarStyleSelectActivity.class);
         view.getContext().startActivity(topbar);

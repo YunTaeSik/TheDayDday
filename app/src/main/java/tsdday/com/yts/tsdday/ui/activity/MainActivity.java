@@ -109,8 +109,9 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         interstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdFailedToLoad(int i) {
-                fabClick();
+                //    fabClick();
             }
+
 
             @Override
             public void onAdClosed() {
@@ -224,13 +225,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 
     @Override
     public void onClick(View view) {
-        int adClickCount = SharedPrefsUtils.getIntegerPreference(this, Keys.addClickCount, 1);
-        if (adClickCount % 5 == 0 && interstitialAd != null && interstitialAd.isLoaded() && !isPrimeum()) {
-            interstitialAd.show();
-        } else {
-            fabClick();
-        }
-        SharedPrefsUtils.setIntegerPreference(this, Keys.addClickCount, adClickCount + 1);
+        fabClick();
     }
 
 

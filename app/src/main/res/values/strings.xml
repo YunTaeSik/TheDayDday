@@ -118,4 +118,5 @@
     <string name="shared_title">Invite</string>
     <string name="shared_message">I recommend App to you! :)</string>
     <string name="shared_call_to_action_text">Install!</string>
+    <string name="activate_special_anniversary_list">Activate Special Anniversary List</string>
 </resources>
