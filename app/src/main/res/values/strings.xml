@@ -119,4 +119,7 @@
     <string name="shared_message">I recommend App to you! :)</string>
     <string name="shared_call_to_action_text">Install!</string>
     <string name="activate_special_anniversary_list">Activate Special Anniversary List</string>
+    <string name="password">Password</string>
+    <string name="password_lock">Password Lock</string>
+    <string name="reset_password">Reset Password</string>
 </resources>

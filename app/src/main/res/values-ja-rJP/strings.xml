@@ -124,5 +124,8 @@
     <string name="shared_message">知人にアプリを招待！ :)</string>
     <string name="shared_call_to_action_text">インストールする</string>
     <string name="activate_special_anniversary_list">特別記念日のリスト活性化</string>
+    <string name="password">暗号</string>
+    <string name="password_lock">暗号ロック</string>
+    <string name="reset_password">暗号再設定</string>
 
 </resources>

@@ -28,6 +28,7 @@ public class SettingViewModel extends BaseViewModel {
     public ObservableBoolean isPremium = new ObservableBoolean(false);
     public ObservableBoolean isViewFormat = new ObservableBoolean(false);
     public ObservableBoolean isSpecialAnniversaryList = new ObservableBoolean(false);
+    public ObservableBoolean isPasswordLock = new ObservableBoolean(false);
 
     public SettingViewModel(Context context) {
         super(context);
@@ -43,6 +44,7 @@ public class SettingViewModel extends BaseViewModel {
         isNotify.set(SharedPrefsUtils.getBooleanPreference(mContext, Keys.isNotify, false));
         isTip.set(SharedPrefsUtils.getBooleanPreference(mContext, Keys.isTip, true));
         isSpecialAnniversaryList.set(SharedPrefsUtils.getBooleanPreference(mContext, Keys.isSpecialAnniversaryList, true));
+        isPasswordLock.set(SharedPrefsUtils.getBooleanPreference(mContext, Keys.isPasswordLock, false));
 
         boolean isPremium = SharedPrefsUtils.getBooleanPreference(mContext, Keys.isPremium, false);
         boolean isRewardTime = System.currentTimeMillis() - SharedPrefsUtils.getLongPreference(mContext, Keys.isReward, 0) <= 86400000;
@@ -69,6 +71,15 @@ public class SettingViewModel extends BaseViewModel {
         isSpecialAnniversaryList.set(!isSpecialAnniversaryList.get());
         SharedPrefsUtils.setBooleanPreference(mContext, Keys.isSpecialAnniversaryList, isSpecialAnniversaryList.get());
         notifyChange();
+    }
+
+    public void onClickPasswordLock() {
+        isPasswordLock.set(!isPasswordLock.get());
+        SharedPrefsUtils.setBooleanPreference(mContext, Keys.isPasswordLock, isPasswordLock.get());
+        notifyChange();
+    }
+
+    public void onClickPasswordReset() {
     }
 
     public void onClickAlbumLikeList() {

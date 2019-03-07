@@ -33,6 +33,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:animateLayoutChanges="true"
                     android:background="@color/white"
                     android:orientation="vertical">
 
@@ -153,6 +154,40 @@
                         android:layout_marginRight="16dp"
                         android:background="@color/gray_light" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:foreground="?android:selectableItemBackground"
+                        android:onClick="@{()->model.onClickPremium()}"
+                        android:orientation="vertical"
+                        android:visibility="@{model.isPremium ? View.GONE:View.VISIBLE}">
+                        <!--광고-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="@string/advertising"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            android:text="@string/advertising_remove"
+                            android:textSize="16sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:background="@color/gray_light" />
+
+                    </LinearLayout>
                     <!--앨범-->
                     <TextView
                         android:layout_width="wrap_content"
@@ -220,7 +255,6 @@
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -244,48 +278,56 @@
                             android:onClick="@{()->model.onClickSpecialAnniversaryList()}" />
                     </LinearLayout>
 
-
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
                         android:background="@color/gray_light" />
+                    <!--암호-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/password"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:foreground="?android:selectableItemBackground"
-                        android:onClick="@{()->model.onClickPremium()}"
-                        android:orientation="vertical"
-                        android:visibility="@{model.isPremium ? View.GONE:View.VISIBLE}">
-                        <!--광고-->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_marginBottom="8dp"
-                            android:text="@string/advertising"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:padding="16dp"
-                            android:text="@string/advertising_remove"
+                            android:text="@string/password_lock"
                             android:textSize="16sp" />
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginLeft="16dp"
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
                             android:layout_marginRight="16dp"
-                            android:background="@color/gray_light" />
-
+                            android:checked="@{model.isPasswordLock}"
+                            android:onClick="@{()->model.onClickPasswordLock()}" />
                     </LinearLayout>
+
+                    <TextView
+                        setVisible="@{model.isPasswordLock}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:foreground="?android:selectableItemBackground"
+                        android:onClick="@{()->model.onClickPasswordReset()}"
+                        android:padding="16dp"
+                        android:text="@string/reset_password"
+                        android:textSize="16sp" />
                     <!--고객센터-->
                     <TextView
                         android:layout_width="wrap_content"

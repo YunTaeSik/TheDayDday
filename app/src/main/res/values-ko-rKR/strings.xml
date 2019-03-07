@@ -124,5 +124,8 @@
     <string name="shared_message">지인에게 어플을 초대합니다! :)</string>
     <string name="shared_call_to_action_text">설치하기</string>
     <string name="activate_special_anniversary_list">특별 기념일 리스트 활성화</string>
+    <string name="password">암호</string>
+    <string name="password_lock">암호 잠금</string>
+    <string name="reset_password">암호 재설정</string>
 
 </resources>

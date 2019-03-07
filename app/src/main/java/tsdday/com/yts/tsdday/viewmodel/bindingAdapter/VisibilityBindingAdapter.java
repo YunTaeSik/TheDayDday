@@ -48,4 +48,10 @@ public class VisibilityBindingAdapter {
             }
         }
     }
+
+    @BindingAdapter({"setVisible"})
+    public static void setVisible(View view, boolean visible) {
+        int v = visible ? View.VISIBLE : View.GONE;
+        view.setVisibility(v);
+    }
 }

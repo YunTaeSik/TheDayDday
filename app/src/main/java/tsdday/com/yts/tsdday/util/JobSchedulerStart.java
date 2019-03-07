@@ -17,9 +17,6 @@ import com.firebase.jobdispatcher.RetryStrategy;
 import com.firebase.jobdispatcher.Trigger;
 
 import tsdday.com.yts.tsdday.service.NotificationJobFriebaseService;
-import tsdday.com.yts.tsdday.service.NotificationJobService;
-import tsdday.com.yts.tsdday.service.NotificationService;
-import tsdday.com.yts.tsdday.ui.widget.BigWidget;
 
 import static android.content.Context.JOB_SCHEDULER_SERVICE;
 
