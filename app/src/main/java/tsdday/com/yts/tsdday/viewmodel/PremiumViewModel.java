@@ -25,9 +25,10 @@ import tsdday.com.yts.tsdday.util.Keys;
 import tsdday.com.yts.tsdday.util.SharedPrefsUtils;
 
 public class PremiumViewModel extends BaseViewModel implements RewardedVideoAdListener {
-    public RewardedVideoAd mRewardedVideoAd;
-    public AdRequest adRequest;
+    private RewardedVideoAd mRewardedVideoAd;
+    private AdRequest adRequest;
     private OnDismiss onDismiss;
+    private BillingFlowParams billingFlowParams;
 
     public ObservableField<String> mPrice = new ObservableField<>("3000");
 
@@ -61,6 +62,11 @@ public class PremiumViewModel extends BaseViewModel implements RewardedVideoAdLi
                                 String sku = skuDetails.getSku();
                                 String price = skuDetails.getPrice();
                                 if ("premium_upgrade".equals(sku)) {
+                                    billingFlowParams = BillingFlowParams.newBuilder()
+                                            .setSkuDetails(skuDetails)
+                                           // .setSku("premium_upgrade")
+                                            //.setType(BillingClient.SkuType.INAPP) // SkuType.SUB for subscription
+                                            .build();
                                     mPrice.set(price);
                                 }
                             }
@@ -70,11 +76,8 @@ public class PremiumViewModel extends BaseViewModel implements RewardedVideoAdLi
     }
 
     public void onClickPrimenum() {
-        BillingFlowParams flowParams = BillingFlowParams.newBuilder()
-                .setSku("premium_upgrade")
-                .setType(BillingClient.SkuType.INAPP) // SkuType.SUB for subscription
-                .build();
-        mBillingClient.launchBillingFlow((BaseActivity) mContext, flowParams);
+
+        mBillingClient.launchBillingFlow((BaseActivity) mContext, billingFlowParams);
    /*     if (mContext instanceof MainActivity) {
             ((MainActivity) mContext).changePrimenum();
         }*/

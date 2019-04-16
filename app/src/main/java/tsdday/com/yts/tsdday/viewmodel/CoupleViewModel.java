@@ -23,6 +23,7 @@ import com.crashlytics.android.Crashlytics;
 import com.gun0912.tedpermission.PermissionListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.Single;
 import io.reactivex.functions.Consumer;
@@ -164,8 +165,9 @@ public class CoupleViewModel extends BaseViewModel implements CoupleInteractor {
             }
 
             @Override
-            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+            public void onPermissionDenied(List<String> deniedPermissions) {
                 ToastMake.error(mContext, mContext.getString(R.string.error_permission));
+
             }
         });
     }

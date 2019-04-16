@@ -19,7 +19,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.PasswordEditActivity"></activity>
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+
+        <activity android:name=".ui.activity.PasswordEditActivity"/>
 
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"
