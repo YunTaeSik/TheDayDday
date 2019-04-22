@@ -146,14 +146,13 @@ public class CoupleViewModel extends BaseViewModel implements CoupleInteractor {
         });
     }
 
-    @SuppressLint("WrongConstant")
     public void onClickDate(String date, int type) {
         if (mContext instanceof BaseActivity) {
             BaseActivity activity = (BaseActivity) mContext;
             FragmentManager fragmentManager = activity.getSupportFragmentManager();
             DateSelectDialog dialog = DateSelectDialog.newInstance(date, type);
             dialog.setCoupleInteractor(this);
-            dialog.show(fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_ENTER_MASK), null);
+            dialog.show(fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE), null);
         }
     }
 

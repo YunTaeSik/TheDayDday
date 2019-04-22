@@ -44,13 +44,10 @@ public class IntroActivity extends AppCompatActivity {
         compositeDisposable.add(Single.timer(4, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Long>() {
-                    @Override
-                    public void accept(Long aLong) throws Exception {
-                        startActivity(new Intent(IntroActivity.this, MainActivity.class));
-                        finish();
-                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    }
+                .subscribe(time -> {
+                    startActivity(new Intent(IntroActivity.this, MainActivity.class));
+                    finish();
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 }));
     }
 

@@ -23,6 +23,7 @@ import tsdday.com.yts.tsdday.interactor.OnDismiss;
 import tsdday.com.yts.tsdday.ui.activity.MainActivity;
 import tsdday.com.yts.tsdday.util.Keys;
 import tsdday.com.yts.tsdday.util.SharedPrefsUtils;
+import tsdday.com.yts.tsdday.util.ToastMake;
 
 public class PremiumViewModel extends BaseViewModel implements RewardedVideoAdListener {
     private RewardedVideoAd mRewardedVideoAd;
@@ -54,21 +55,18 @@ public class PremiumViewModel extends BaseViewModel implements RewardedVideoAdLi
         SkuDetailsParams.Builder params = SkuDetailsParams.newBuilder();
         params.setSkusList(skuList).setType(BillingClient.SkuType.INAPP);
         mBillingClient.querySkuDetailsAsync(params.build(),
-                new SkuDetailsResponseListener() {
-                    @Override
-                    public void onSkuDetailsResponse(int responseCode, List<SkuDetails> skuDetailsList) {
-                        if (skuDetailsList != null) {
-                            for (SkuDetails skuDetails : skuDetailsList) {
-                                String sku = skuDetails.getSku();
-                                String price = skuDetails.getPrice();
-                                if ("premium_upgrade".equals(sku)) {
-                                    billingFlowParams = BillingFlowParams.newBuilder()
-                                            .setSkuDetails(skuDetails)
-                                           // .setSku("premium_upgrade")
-                                            //.setType(BillingClient.SkuType.INAPP) // SkuType.SUB for subscription
-                                            .build();
-                                    mPrice.set(price);
-                                }
+                (responseCode, skuDetailsList) -> {
+                    if (skuDetailsList != null) {
+                        for (SkuDetails skuDetails : skuDetailsList) {
+                            String sku = skuDetails.getSku();
+                            String price = skuDetails.getPrice();
+                            if ("premium_upgrade".equals(sku)) {
+                                billingFlowParams = BillingFlowParams.newBuilder()
+                                        .setSkuDetails(skuDetails)
+                                        // .setSku("premium_upgrade")
+                                        //.setType(BillingClient.SkuType.INAPP) // SkuType.SUB for subscription
+                                        .build();
+                                mPrice.set(price);
                             }
                         }
                     }
@@ -76,7 +74,10 @@ public class PremiumViewModel extends BaseViewModel implements RewardedVideoAdLi
     }
 
     public void onClickPrimenum() {
-
+        if (mBillingClient == null) {
+            ToastMake.make(mContext,R.string.error_default);
+            return;
+        }
         mBillingClient.launchBillingFlow((BaseActivity) mContext, billingFlowParams);
    /*     if (mContext instanceof MainActivity) {
             ((MainActivity) mContext).changePrimenum();
