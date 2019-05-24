@@ -3,6 +3,7 @@ package tsdday.com.yts.tsdday.viewmodel;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.view.View;
 import android.widget.ToggleButton;
 
@@ -29,6 +30,9 @@ public class SettingViewModel extends BaseViewModel {
     public ObservableBoolean isViewFormat = new ObservableBoolean(false);
     public ObservableBoolean isSpecialAnniversaryList = new ObservableBoolean(false);
     public ObservableBoolean isPasswordLock = new ObservableBoolean(false);
+    public ObservableBoolean isFingerprintLogin = new ObservableBoolean(false);
+
+    public ObservableBoolean visiblePassword = new ObservableBoolean(false);
 
     public SettingViewModel(Context context) {
         super(context);
@@ -41,10 +45,12 @@ public class SettingViewModel extends BaseViewModel {
         } catch (PackageManager.NameNotFoundException e) {
             Crashlytics.logException(e);
         }
+        visiblePassword.set((Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)));
         isNotify.set(SharedPrefsUtils.getBooleanPreference(mContext, Keys.isNotify, false));
         isTip.set(SharedPrefsUtils.getBooleanPreference(mContext, Keys.isTip, true));
         isSpecialAnniversaryList.set(SharedPrefsUtils.getBooleanPreference(mContext, Keys.isSpecialAnniversaryList, true));
         isPasswordLock.set(SharedPrefsUtils.getBooleanPreference(mContext, Keys.isPasswordLock, false));
+        isFingerprintLogin.set(SharedPrefsUtils.getBooleanPreference(mContext, Keys.isFingerprintLogin, false));
 
         boolean isPremium = SharedPrefsUtils.getBooleanPreference(mContext, Keys.isPremium, false);
         boolean isRewardTime = System.currentTimeMillis() - SharedPrefsUtils.getLongPreference(mContext, Keys.isReward, 0) <= 86400000;
@@ -76,6 +82,12 @@ public class SettingViewModel extends BaseViewModel {
     public void onClickPasswordLock() {
         isPasswordLock.set(!isPasswordLock.get());
         SharedPrefsUtils.setBooleanPreference(mContext, Keys.isPasswordLock, isPasswordLock.get());
+        notifyChange();
+    }
+
+    public void onClickFingerprintLogin() {
+        isFingerprintLogin.set(!isFingerprintLogin.get());
+        SharedPrefsUtils.setBooleanPreference(mContext, Keys.isFingerprintLogin, isFingerprintLogin.get());
         notifyChange();
     }
 

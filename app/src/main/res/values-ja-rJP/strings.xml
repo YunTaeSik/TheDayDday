@@ -127,5 +127,6 @@
     <string name="password">暗号</string>
     <string name="password_lock">暗号ロック</string>
     <string name="reset_password">暗号再設定</string>
+    <string name="fingerprint_login">指紋ログイン</string>
 
 </resources>

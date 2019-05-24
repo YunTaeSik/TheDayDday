@@ -19,6 +19,7 @@ public class Keys {
     public final static String isTip = "isTip";
     public final static String isSpecialAnniversaryList = "isSpecialAnniversaryList";
     public final static String isPasswordLock = "isPasswordLock";
+    public final static String isFingerprintLogin = "isFingerprintLogin";
 
     public final static String isPremium = "isPremium";
     public final static String isReward = "isReward";

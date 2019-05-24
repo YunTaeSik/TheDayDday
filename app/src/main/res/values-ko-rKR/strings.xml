@@ -127,5 +127,6 @@
     <string name="password">암호</string>
     <string name="password_lock">암호 잠금</string>
     <string name="reset_password">암호 재설정</string>
+    <string name="fingerprint_login">지문 로그인</string>
 
 </resources>

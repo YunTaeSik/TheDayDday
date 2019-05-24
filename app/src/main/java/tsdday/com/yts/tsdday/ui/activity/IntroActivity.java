@@ -19,6 +19,8 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import tsdday.com.yts.tsdday.R;
 import tsdday.com.yts.tsdday.databinding.IntroBinding;
+import tsdday.com.yts.tsdday.util.Keys;
+import tsdday.com.yts.tsdday.util.SharedPrefsUtils;
 
 public class IntroActivity extends AppCompatActivity {
 
@@ -36,16 +38,23 @@ public class IntroActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        binding.animationView.setMinProgress(0.2f);
+        binding.animationView.setMaxProgress(0.57f);
         binding.animationView.playAnimation();
         moveMain();
     }
 
     private void moveMain() {
-        compositeDisposable.add(Single.timer(4, TimeUnit.SECONDS)
+        boolean isFingerprintLogin = SharedPrefsUtils.getBooleanPreference(this, Keys.isFingerprintLogin, false);
+        compositeDisposable.add(Single.timer(2, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(time -> {
-                    startActivity(new Intent(IntroActivity.this, MainActivity.class));
+                    if (isFingerprintLogin) {
+                        startActivity(new Intent(IntroActivity.this, LockActivity.class));
+                    } else {
+                        startActivity(new Intent(IntroActivity.this, MainActivity.class));
+                    }
                     finish();
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 }));

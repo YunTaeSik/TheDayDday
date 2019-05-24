@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+
 import tsdday.com.yts.tsdday.R;
 import tsdday.com.yts.tsdday.databinding.SettingBinding;
 import tsdday.com.yts.tsdday.viewmodel.SettingViewModel;

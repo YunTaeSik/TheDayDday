@@ -81,6 +81,7 @@ public class BaseActivity extends AppCompatActivity implements PurchasesUpdatedL
             for (Purchase purchase : purchasesResult.getPurchasesList()) {
                 if (purchase.getSku().equals("premium_upgrade")) {
                     SharedPrefsUtils.setBooleanPreference(getApplicationContext(), Keys.isPremium, true);
+
                     if (onPremiumInspection != null) {
                         onPremiumInspection.onPremiumInspection();
                     }
@@ -88,18 +89,14 @@ public class BaseActivity extends AppCompatActivity implements PurchasesUpdatedL
             }
         }
         mBillingClient.queryPurchaseHistoryAsync(BillingClient.SkuType.INAPP,
-                new PurchaseHistoryResponseListener() {
-                    @Override
-                    public void onPurchaseHistoryResponse(@BillingClient.BillingResponse int responseCode,
-                                                          List<Purchase> purchasesList) {
-                        if (responseCode == BillingClient.BillingResponse.OK
-                                && purchasesList != null) {
-                            for (Purchase purchase : purchasesList) {
-                                if (purchase.getSku().equals("premium_upgrade")) {
-                                    SharedPrefsUtils.setBooleanPreference(getApplicationContext(), Keys.isPremium, true);
-                                    if (onPremiumInspection != null) {
-                                        onPremiumInspection.onPremiumInspection();
-                                    }
+                (responseCode, purchasesList) -> {
+                    if (responseCode == BillingClient.BillingResponse.OK
+                            && purchasesList != null) {
+                        for (Purchase purchase : purchasesList) {
+                            if (purchase.getSku().equals("premium_upgrade")) {
+                                SharedPrefsUtils.setBooleanPreference(getApplicationContext(), Keys.isPremium, true);
+                                if (onPremiumInspection != null) {
+                                    onPremiumInspection.onPremiumInspection();
                                 }
                             }
                         }
@@ -178,7 +175,7 @@ public class BaseActivity extends AppCompatActivity implements PurchasesUpdatedL
                         FragmentManager fragmentManager = getSupportFragmentManager();
                         if (fragmentManager != null) {
                             DateSelectDialog dialog = DateSelectDialog.newInstance(date);
-                            dialog.show(fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_ENTER_MASK), null);
+                            dialog.show(fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE), null);
                         }
                     }
                 }

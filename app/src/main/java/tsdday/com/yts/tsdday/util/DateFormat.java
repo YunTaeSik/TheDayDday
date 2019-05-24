@@ -193,7 +193,7 @@ public class DateFormat {
             anniversaryArrayList.add(getAnniversaryFromCalender(context, dayCalendar, (100 * i) + context.getString(R.string.day), couple.getStartOne()));
 
             GregorianCalendar yearCalendar = new GregorianCalendar(startCalendar.get(Calendar.YEAR) + i, startCalendar.get(Calendar.MONTH), startCalendar.get(Calendar.DATE), 0, 0, 0);
-            anniversaryArrayList.add(getAnniversaryFromCalender(context, yearCalendar, (i) + context.getString(R.string.anniversary), couple.getStartOne()));
+            anniversaryArrayList.add(getAnniversaryFromCalender(context, yearCalendar, (i) + context.getString(R.string.anniversary), true));
         }
     }
 
