@@ -16,7 +16,10 @@ import com.firebase.jobdispatcher.Lifetime;
 import com.firebase.jobdispatcher.RetryStrategy;
 import com.firebase.jobdispatcher.Trigger;
 
+import java.util.concurrent.TimeUnit;
+
 import tsdday.com.yts.tsdday.service.NotificationJobFriebaseService;
+import tsdday.com.yts.tsdday.service.NotificationJobService;
 
 import static android.content.Context.JOB_SCHEDULER_SERVICE;
 
@@ -39,5 +42,17 @@ public class JobSchedulerStart {
                 .setRetryStrategy(RetryStrategy.DEFAULT_EXPONENTIAL)
                 .build();
         dispatcher.mustSchedule(myJob);
+
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            JobScheduler js = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
+            ComponentName serviceComponent = new ComponentName(context, NotificationJobService.class);
+            JobInfo jobInfo = new JobInfo.Builder(JOB_ID, serviceComponent)
+                    .setPersisted(true)
+                    .setPeriodic(TimeUnit.MINUTES.toMillis(1))
+                    .build();
+            js.schedule(jobInfo);
+        }
+
     }
 }

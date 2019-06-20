@@ -1,29 +1,30 @@
 package tsdday.com.yts.tsdday.service;
 
-import android.annotation.TargetApi;
-import android.content.IntentFilter;
-import android.os.Build;
+
 import android.util.Log;
 
 import com.firebase.jobdispatcher.JobParameters;
 import com.firebase.jobdispatcher.JobService;
 
-import tsdday.com.yts.tsdday.R;
 import tsdday.com.yts.tsdday.util.NotificationCreate;
+import tsdday.com.yts.tsdday.util.WidgetUpdater;
 
 public class NotificationJobService extends JobService {
-    private ServiceReciver mReciver;
-
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
-        Log.d("NotificationJobService", "onStartJob");
+        System.out.print("NotificationJobService = onStartJob");
+        Log.e(getClass().getName(),"onStartJob");
         NotificationCreate.startAndStop(this);
-        return true;
+        WidgetUpdater.update(this);
+        return false;
     }
 
     @Override
     public boolean onStopJob(JobParameters jobParameters) {
-
+        System.out.print("NotificationJobService = onStopJob");
+        Log.e(getClass().getName(),"onStopJob");
+        NotificationCreate.startAndStop(this);
+        WidgetUpdater.update(this);
         return false;
     }
 }

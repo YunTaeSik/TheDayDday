@@ -15,8 +15,6 @@ public class NotificationJobFriebaseService extends JobService {
     @Override
     public boolean onStartJob(JobParameters job) {
         // Do some work here
-        Log.d("NotificationJobService", "onStartJob");
-        System.out.print("NotificationJobService = onStartJob");
         NotificationCreate.startAndStop(this);
         WidgetUpdater.update(this);
 
@@ -25,8 +23,6 @@ public class NotificationJobFriebaseService extends JobService {
 
     @Override
     public boolean onStopJob(JobParameters job) {
-        Log.d("NotificationJobService", "onStopJob");
-        System.out.print("NotificationJobService = onStopJob");
         NotificationCreate.startAndStop(this);
         return false; // Answers the question: "Should this job be retried?"
     }

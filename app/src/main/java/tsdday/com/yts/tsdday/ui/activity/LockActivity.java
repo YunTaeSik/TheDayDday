@@ -17,6 +17,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import java.util.concurrent.Executors;
 
 import tsdday.com.yts.tsdday.R;
+import tsdday.com.yts.tsdday.util.ToastMake;
 
 public class LockActivity extends AppCompatActivity implements View.OnClickListener {
     private LottieAnimationView btn_login;
@@ -70,7 +71,15 @@ public class LockActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        BiometricPrompt biometricPrompt = new BiometricPrompt(this, Executors.newSingleThreadExecutor(), authenticationCallback);
-        biometricPrompt.authenticate(mBiPromptInfo);
+        try {
+            BiometricPrompt biometricPrompt = new BiometricPrompt(this, Executors.newSingleThreadExecutor(), authenticationCallback);
+            biometricPrompt.authenticate(mBiPromptInfo);
+        }catch (Exception e){
+            ToastMake.make(this,"오류가 발생했습니다.");
+            startActivity(new Intent(LockActivity.this, MainActivity.class));
+            finish();
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            e.printStackTrace();
+        }
     }
 }
