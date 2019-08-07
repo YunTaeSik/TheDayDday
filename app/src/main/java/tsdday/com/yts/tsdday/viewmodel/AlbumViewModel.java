@@ -67,14 +67,11 @@ public class AlbumViewModel extends BaseViewModel {
 
     public void setAlbum(String date) {
         isLoading.set(true);
-        mCompositeDisposable.add(RealmService.getAlbum(mRealm, date).subscribe(new Consumer<Album>() {
-            @Override
-            public void accept(Album value) throws Exception {
-                album.set(value);
-                isLike.set(value.isLike());
-                setRealmToItemList(value);
-                isLoading.set(false);
-            }
+        mCompositeDisposable.add(RealmService.getAlbum(mRealm, date).subscribe(value -> {
+            album.set(value);
+            isLike.set(value.isLike());
+            setRealmToItemList(value);
+            isLoading.set(false);
         }));
     }
 

@@ -104,12 +104,12 @@ public class BaseActivity extends AppCompatActivity implements PurchasesUpdatedL
                 });
     }
 
+
     public boolean isPrimeum() {
         boolean isPremium = SharedPrefsUtils.getBooleanPreference(this, Keys.isPremium, false);
         boolean isRewardTime = System.currentTimeMillis() - SharedPrefsUtils.getLongPreference(this, Keys.isReward, 0) <= 86400000;
         return isPremium || isRewardTime;
     }
-
 
     public void startFragmentDialog(DialogFragment dialogFragment, int transitionId) {
         try {
