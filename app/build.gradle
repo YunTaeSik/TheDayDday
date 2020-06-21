@@ -7,8 +7,8 @@ android {
         release {
             storeFile file('signature/key.jks')
             keyAlias "yts"
-            keyPassword 'yts794652@'
-            storePassword 'yts794652@'
+            keyPassword ''
+            storePassword ''
         }
     }
     compileSdkVersion 28
